@@ -22,7 +22,7 @@ use RAD\Log\Model\LogModel as Log;
  * @property int    $rad_stock
  * @property int    $rad_updated
  * @property float  $rad_width
- * @property float  $rad_weight_net
+ * @property float  $rad_weight
  * @property float  $rad_length
  * @property float  $rad_height
  * @property string $rad_sku
@@ -152,11 +152,11 @@ class FulfillmentProduct extends Standard
      */
     public function getWeightNet()
     {
-        if (!isset($this->arrData['rad_weight_net'])) {
+        if (!isset($this->arrData['rad_weight'])) {
             return null;
         }
 
-        return Weight::createFromTimePeriod($this->arrData['rad_weight_net']);
+        return Weight::createFromTimePeriod($this->arrData['rad_weight']);
     }
 
     /**
