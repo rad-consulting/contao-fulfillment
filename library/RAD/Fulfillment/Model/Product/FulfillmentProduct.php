@@ -144,7 +144,11 @@ class FulfillmentProduct extends Standard
      */
     public function getWeightGross()
     {
-        return $this->getWeight();
+        if (!isset($this->arrData['shipping_weight'])) {
+            return new Weight(0, 'kg');
+        }
+
+        return Weight::createFromTimePeriod($this->arrData['shipping_weight']);
     }
 
     /**
@@ -153,7 +157,7 @@ class FulfillmentProduct extends Standard
     public function getWeightNet()
     {
         if (!isset($this->arrData['rad_weight'])) {
-            return null;
+            return new Weight(0, 'kg');
         }
 
         return Weight::createFromTimePeriod($this->arrData['rad_weight']);
