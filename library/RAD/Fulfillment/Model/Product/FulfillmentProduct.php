@@ -142,14 +142,6 @@ class FulfillmentProduct extends Standard
     /**
      * @return \Haste\Units\Mass\Weight
      */
-    public function getWeight()
-    {
-        return parent::getWeight();
-    }
-
-    /**
-     * @return \Haste\Units\Mass\Weight
-     */
     public function getWeightGross()
     {
         return $this->getWeight();
