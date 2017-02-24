@@ -180,7 +180,6 @@ class FulfillmentProduct extends Standard
     public function log($message, $level = Log::INFO, $data = null)
     {
         if ($message instanceof Exception) {
-            $level = $message->getCode();
             $message = $message->getMessage();
         }
 
