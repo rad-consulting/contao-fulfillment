@@ -21,5 +21,6 @@ $GLOBALS['TL_LANG']['tl_iso_product']['rad_weight'] = array('Gewicht (Netto)', '
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_width'] = array('Breite', 'Breite des Produkts in Zentimeter.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_height'] = array('Höhe', 'Höhe des Produkts in Zentimeter.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_length'] = array('Länge', 'Länge des Produkts in Zentimeter.');
+$GLOBALS['TL_LANG']['tl_iso_product']['rad_volume'] = array('Volumen', 'Volumen des Produkts in Kubikzentimeter.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_export'] = array('Exportieren', 'Produkt für das Exportieren an diverse Schnittstellen freigeben.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_exported'] = array('Exportiert', 'Definiert ob das Produkt bereits exportiert wurde.');
