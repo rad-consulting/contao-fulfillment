@@ -94,7 +94,8 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_volume'] = array(
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_weight'] = array(
     'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_weight'],
     'exclude' => true,
-    'inputType' => 'text',
+    'default' => array('', 'kg'),
+    'inputType' => 'timePeriod',
     'eval' => array('maxlength' => 10, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50', 'helpwizard' => true),
     'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'Isotope\\Model\\Attribute\\Weight'),
     'sql' => "decimal(8,2) NOT NULL default '0.00'",
