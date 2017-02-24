@@ -7,4 +7,4 @@
  */
 
 // Models
-$GLOBALS['TL_LANG']['MODEL']['tl_iso_product.fulfillment'] = array('Distanzhandel-Produkt');
+$GLOBALS['TL_LANG']['MODEL']['tl_iso_product']['fulfillment'] = array('Distanzhandel-Produkt');
