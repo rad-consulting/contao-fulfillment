@@ -100,7 +100,7 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_weight'] = array(
     'reference' => &$GLOBALS['TL_LANG']['WGT'],
     'inputType' => 'timePeriod',
     'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'Isotope\\Model\\Attribute\\Weight'),
-    'sql' => "decimal(8,2) NOT NULL default '0.00'",
+    'sql' => "varchar(255) NOT NULL default ''",
 );
 
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_export'] = array(
