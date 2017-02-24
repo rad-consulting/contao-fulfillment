@@ -152,7 +152,11 @@ class FulfillmentProduct extends Standard
      */
     public function getWeightNet()
     {
-        return Weight::createFromTimePeriod($this->rad_weight_net);
+        if (!isset($this->arrData['rad_weight_net'])) {
+            return null;
+        }
+
+        return Weight::createFromTimePeriod($this->arrData['rad_weight_net']);
     }
 
     /**
