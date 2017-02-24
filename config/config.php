@@ -6,7 +6,6 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
-\Isotope\Model\Product::registerModelType('fulfillment', 'RAD\\Fulfillment\\Model\\ProductModel');
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\FulfillmentModel::getTable()] = 'RAD\\Fulfillment\\Model\\FulfillmentModel';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\SupplierOrderModel::getTable()] = 'RAD\\Fulfillment\\Model\\SupplierOrderModel';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\Product\FulfillmentProduct::getTable()] = 'RAD\\Fulfillment\\Model\\Product\\FulfillmentProduct';
