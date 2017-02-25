@@ -9,12 +9,13 @@ namespace RAD\Fulfillment\Model;
 
 use Exception;
 use Contao\Model;
+use RAD\Log\LogInterface;
 use RAD\Log\Model\LogModel as Log;
 
 /**
  * Class AbstractModel
  */
-abstract class AbstractModel extends Model
+abstract class AbstractModel extends Model implements LogInterface
 {
     /**
      * @param string|Exception $message
@@ -29,7 +30,7 @@ abstract class AbstractModel extends Model
             $message = $message->getMessage();
         }
 
-        Log::log($this, $message, $level, $data);
+        Log::factory($this, $message, $level, $data);
 
         return $this;
     }
