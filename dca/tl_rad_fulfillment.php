@@ -96,7 +96,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['type'],
         'inputType' => 'select',
         'reference' => &$GLOBALS['TL_LANG']['MODEL']['tl_iso_product'],
-        'options_callback' => array('Isotope\\Model\\Product', 'getModelTypes'),
+        'options_callback' => array('RAD\\Fulfillment\\Model\\Product\\FulfillmentProduct', 'getModelTypes'),
     ),
     'items' => array(
         'sql' => "varchar(48) NOT NULL default ''",
