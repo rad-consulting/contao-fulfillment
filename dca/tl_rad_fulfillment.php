@@ -75,10 +75,12 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['palettes'] = array(
 $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
     'id' => array(
         'sql' => "int(10) unsigned NOT NULL auto_increment",
+        'eval' => array('readonly' => true),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['id'],
     ),
     'pid' => array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
+        'eval' => array('readonly' => true),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['pid'],
     ),
     'ptable' => array(
@@ -92,6 +94,9 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
         'sql' => "varchar(48) NOT NULL default ''",
         'eval' => array('readonly' => true),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['type'],
+        'inputType' => 'select',
+        'reference' => &$GLOBALS['TL_LANG']['MODEL']['tl_iso_product'],
+        'options_callback' => array('Isotope\\Model\\Product', 'getModelTypes'),
     ),
     'items' => array(
         'sql' => "varchar(48) NOT NULL default ''",
