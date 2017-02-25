@@ -175,4 +175,12 @@ class FulfillmentModel extends AbstractModel
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getTracking()
+    {
+        return $this->tracking;
+    }
 }
