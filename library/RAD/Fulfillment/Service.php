@@ -52,7 +52,7 @@ class Service implements EventSubscriber
                 $product = FulfillmentProduct::findByPk($item->product_id);
 
                 if ($product instanceof FulfillmentProduct) {
-                    $product->setStock($product->getStock() + $item->quantity);
+                    $product->setStock($product->getStock() - $item->quantity);
                     $product->save();
                 }
             }
