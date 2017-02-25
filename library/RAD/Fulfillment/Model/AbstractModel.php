@@ -30,7 +30,7 @@ abstract class AbstractModel extends Model implements LogInterface
             $message = $message->getMessage();
         }
 
-        Log::factory($this, $message, $level, $data);
+        Log::factory($this, $message, $level, $data)->save();
 
         return $this;
     }
