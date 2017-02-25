@@ -92,10 +92,9 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['fields'] = array(
         'sql' => "varchar(64) NOT NULL default ''",
         'eval' => array('tl_class' => 'w50', 'chosen' => true, 'submitOnChange' => true),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_supplier_order']['producttype'],
+        'default' => 'fulfillment',
         'inputType' => 'select',
-        'options' => array(
-            'yellowcube' => 'YellowCube',
-        ),
+        'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel' => 'getOptionsProductType'),
     ),
     'positions' => array(
         'sql' => "blob NULL",
@@ -108,7 +107,8 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['fields'] = array(
                     'eval' => array('mandatory' => true, 'chosen' => true, 'style' => 'width:350px'),
                     'label' => &$GLOBALS['TL_LANG']['tl_rad_supplier_order']['product'],
                     'inputType' => 'select',
-                    'options_callback' => array('RAD\\Fulfillment\\Backend\\Field', 'forProductSupplierOrder'),
+                    'reference' => &$GLOBALS['TL_LANG']['MODEL']['tl_iso_product'],
+                    'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsProduct'),
                 ),
                 'quantity' => array(
                     'eval' => array('mandatory' => true, 'rgxp' => 'digit', 'style' => 'width:50px'),

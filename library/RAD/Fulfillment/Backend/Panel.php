@@ -15,25 +15,20 @@ use Isotope\Model\ProductType;
 use MultiColumnWizard;
 
 /**
- * Class Field
+ * Class Panel
  */
-class Field extends Backend
+class Panel extends Backend
 {
     /**
-     * @param MultiColumnWizard $wizard
+     * @param DataContainer|MultiColumnWizard $dc
      * @return array
      */
-    public function forProductSupplierOrder(MultiColumnWizard $wizard)
+    public function getOptionsProduct($dc)
     {
-        return $this->forProduct($wizard->dataContainer);
-    }
+        if ($dc instanceof MultiColumnWizard) {
+            $dc = $dc->dataContainer;
+        }
 
-    /**
-     * @param DataContainer $dc
-     * @return array
-     */
-    public function forProduct(DataContainer $dc)
-    {
         $db = $this->Database;
         $type = $dc->activeRecord->producttype;
         $options = array();
@@ -68,6 +63,23 @@ class Field extends Backend
                 }
             }
         }
+
+        return $options;
+    }
+
+    /**
+     * @param DataContainer $dc
+     * @return array
+     */
+    public function getOptionsProductType(DataContainer $dc)
+    {
+        $options = array();
+
+        foreach (Product::getModelTypes() as $option) {
+            $options[$option] = $GLOBALS['TL_LANG']['MODEL']['tl_iso_product'][$option];
+        }
+
+        asort($options);
 
         return $options;
     }
