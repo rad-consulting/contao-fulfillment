@@ -18,11 +18,10 @@ $GLOBALS['TL_DCA']['tl_iso_product']['list']['operations']['log'] = array(
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_ean'] = array(
     'sql' => "varchar(255) NOT NULL default ''",
     'eval' => array('maxlength' => 18, 'unique' => true, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50'),
-    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_length'],
+    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_ean'],
     'exclude' => true,
     'default' => array('', 'HE'),
     'options' => array('HE', 'E5', 'EA', 'HK', 'I6', 'IC', 'IE', 'IK', 'SA', 'SG', 'UC', 'VC'),
-    'reference' => &$GLOBALS['TL_LANG']['EAN'],
     'inputType' => 'timePeriod',
     'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\EAN'),
 );
