@@ -76,7 +76,7 @@ class Panel extends Backend
         $options = array();
 
         foreach (array_keys(Product::getModelTypes()) as $option) {
-            $options[$option] = $GLOBALS['TL_LANG']['MODEL']['tl_iso_product'][$option];
+            $options[$option] = $GLOBALS['TL_LANG']['MODEL']['tl_iso_product'][$option][0];
         }
 
         asort($options);
