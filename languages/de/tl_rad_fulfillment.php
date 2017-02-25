@@ -17,3 +17,13 @@ $GLOBALS['TL_LANG']['tl_rad_fulfillment']['producttype'] = array('Produkt-Typ');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['status'] = array('Status');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['reference'] = array('Referenz', 'Referenz der Kundenbestellung beim Distributeur.');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['tracking'] = array('Tracking-Nummern', 'Informationen zur Nachverfolgung der Sendung.');
+
+// Reference
+$GLOBALS['TL_LANG']['tl_rad_fulfillment']['status.reference'] = array(
+    \RAD\Fulfillment\Model\FulfillmentModel::PENDING => 'Pendent',
+    \RAD\Fulfillment\Model\FulfillmentModel::SENT => 'Übermittelt',
+    \RAD\Fulfillment\Model\FulfillmentModel::CONFIRMED => 'Bestätigt',
+    \RAD\Fulfillment\Model\FulfillmentModel::REJECTED => 'Abgelehnt',
+    \RAD\Fulfillment\Model\FulfillmentModel::DELIVERED => 'Ausgeliefert',
+    \RAD\Fulfillment\Model\FulfillmentModel::COMPLETED => 'Abgeschlossen',
+);
