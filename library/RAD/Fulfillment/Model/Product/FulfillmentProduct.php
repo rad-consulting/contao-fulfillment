@@ -71,7 +71,7 @@ class FulfillmentProduct extends Standard
      */
     public function doExport()
     {
-        return (bool)$this->rad_export;
+        return (bool)$this->arrData['rad_export'];
     }
 
     /**
@@ -79,7 +79,7 @@ class FulfillmentProduct extends Standard
      */
     public function isExported()
     {
-        return (bool)$this->rad_exported;
+        return (bool)$this->arrData['rad_exported'];
     }
 
     /**
@@ -94,7 +94,7 @@ class FulfillmentProduct extends Standard
             $this->log($message, Log::INFO, $data);
         }
 
-        $this->rad_exported = (int)$exported;
+        $this->arrData['rad_exported'] = (int)$exported;
 
         return $this;
     }
@@ -111,7 +111,7 @@ class FulfillmentProduct extends Standard
             $this->log($message, Log::INFO, $data);
         }
 
-        $this->rad_updated = $updated ? time() : 0;
+        $this->arrData['rad_updated'] = $updated ? time() : 0;
 
         return $this;
     }
