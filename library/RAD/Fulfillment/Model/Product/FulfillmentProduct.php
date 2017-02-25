@@ -8,9 +8,10 @@
 namespace RAD\Fulfillment\Model\Product;
 
 use Exception;
-use Haste\Units\Mass\Weight;
+use Haste\Units\Mass;
 use Isotope\Model\Product\Standard;
 use RAD\Log\Model\LogModel as Log;
+use RAD\Fulfillment\Unit\Dimension;
 
 /**
  * Class FulfillmentProduct
@@ -116,27 +117,39 @@ class FulfillmentProduct extends Standard
     }
 
     /**
-     * @return float
+     * @return Dimension\Dimension
      */
     public function getHeight()
     {
-        return $this->rad_height;
+        if (!isset($this->arrData['rad_height'])) {
+            return new Dimension\Dimension(0, Dimension\Unit::CENTIMETER);
+        }
+
+        return Dimension\Dimension::createFromTimePeriod($this->arrData['rad_height']);
     }
 
     /**
-     * @return float
+     * @return Dimension\Dimension
      */
     public function getLength()
     {
-        return $this->rad_length;
+        if (!isset($this->arrData['rad_length'])) {
+            return new Dimension\Dimension(0, Dimension\Unit::CENTIMETER);
+        }
+
+        return Dimension\Dimension::createFromTimePeriod($this->arrData['rad_length']);
     }
 
     /**
-     * @return float
+     * @return Dimension\Dimension
      */
     public function getWidth()
     {
-        return $this->rad_width;
+        if (!isset($this->arrData['rad_width'])) {
+            return new Dimension\Dimension(0, Dimension\Unit::CENTIMETER);
+        }
+
+        return Dimension\Dimension::createFromTimePeriod($this->arrData['rad_width']);
     }
 
     /**
@@ -145,10 +158,10 @@ class FulfillmentProduct extends Standard
     public function getWeightGross()
     {
         if (!isset($this->arrData['shipping_weight'])) {
-            return new Weight(0, 'kg');
+            return new Mass\Weight(0, Mass\Unit::KILOGRAM);
         }
 
-        return Weight::createFromTimePeriod($this->arrData['shipping_weight']);
+        return Mass\Weight::createFromTimePeriod($this->arrData['shipping_weight']);
     }
 
     /**
@@ -157,10 +170,10 @@ class FulfillmentProduct extends Standard
     public function getWeightNet()
     {
         if (!isset($this->arrData['rad_weight'])) {
-            return new Weight(0, 'kg');
+            return new Mass\Weight(0, Mass\Unit::KILOGRAM);
         }
 
-        return Weight::createFromTimePeriod($this->arrData['rad_weight']);
+        return Mass\Weight::createFromTimePeriod($this->arrData['rad_weight']);
     }
 
     /**
