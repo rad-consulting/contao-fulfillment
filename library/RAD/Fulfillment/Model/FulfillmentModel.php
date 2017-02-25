@@ -131,7 +131,7 @@ class FulfillmentModel extends AbstractModel
     public function setRejected($message = null, $data = null)
     {
         if ($message) {
-            $this->log($message, Log::INFO, $data);
+            $this->log($message, Log::WARNING, $data);
         }
 
         $this->status = static::REJECTED;
