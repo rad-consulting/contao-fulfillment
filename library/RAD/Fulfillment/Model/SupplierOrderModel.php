@@ -12,8 +12,9 @@ use RAD\Log\Model\LogModel as Log;
 /**
  * Class SupplierOrderModel
  *
- * @property int $export
- * @property int $exported
+ * @property int    $export
+ * @property int    $exported
+ * @property string $positions
  */
 class SupplierOrderModel extends AbstractModel
 {
@@ -21,6 +22,14 @@ class SupplierOrderModel extends AbstractModel
      * @var string
      */
     public static $strTable = 'tl_rad_supplier_order';
+
+    /**
+     * @return array
+     */
+    public function getPositions()
+    {
+        return deserialize($this->positions, true);
+    }
 
     /**
      * @return bool
