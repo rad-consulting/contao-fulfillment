@@ -14,7 +14,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['config'] = array(
     'sql' => array(
         'keys' => array(
             'id' => 'primary',
-            'pid,ptable,type' => 'unique',
+            'pid,ptable,producttype' => 'unique',
         ),
     ),
 );
@@ -28,7 +28,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
         'flag' => 12,
     ),
     'label' => array(
-        'fields' => array('id', 'tstamp', 'pid', 'type', 'status', 'reference', 'tracking'),
+        'fields' => array('id', 'tstamp', 'pid', 'producttype', 'status', 'reference', 'tracking'),
         'showColumns' => true,
         'label_callback' => array('RAD\\Fulfillment\\Backend\\Listing', 'listFulfillment'),
     ),
@@ -90,13 +90,12 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['tstamp'],
     ),
-    'type' => array(
+    'producttype' => array(
         'sql' => "varchar(48) NOT NULL default ''",
         'eval' => array('readonly' => true),
-        'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['type'],
+        'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['producttype'],
         'inputType' => 'select',
-        'reference' => &$GLOBALS['TL_LANG']['MODEL']['tl_iso_product'],
-        'options_callback' => array('RAD\\Fulfillment\\Model\\Product\\FulfillmentProduct', 'getModelTypes'),
+        'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForProductType'),
     ),
     'items' => array(
         'sql' => "varchar(48) NOT NULL default ''",
