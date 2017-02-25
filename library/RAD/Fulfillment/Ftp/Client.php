@@ -155,20 +155,6 @@ class Client
     }
 
     /**
-     * @param $filename
-     * @return bool
-     * @throws RuntimeException
-     */
-    public function getSize($filename)
-    {
-        if ($this->isLoggedIn()) {
-            return (bool)ftp_size($this->stream, $filename);
-        }
-
-        return false;
-    }
-
-    /**
      * @return bool
      * @throws RuntimeException
      */
@@ -179,6 +165,20 @@ class Client
         }
 
         throw new RuntimeException('Not connected');
+    }
+
+    /**
+     * @param string $remote
+     * @return bool
+     * @throws RuntimeException
+     */
+    public function isFile($remote)
+    {
+        if ($this->isLoggedIn()) {
+            return (bool)ftp_size($this->stream, $remote);
+        }
+
+        return false;
     }
 
     /**
