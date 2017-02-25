@@ -90,7 +90,7 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['fields'] = array(
     ),
     'producttype' => array(
         'sql' => "varchar(64) NOT NULL default ''",
-        'eval' => array('tl_class' => 'w50', 'chosen' => true, 'submitOnChange' => true),
+        'eval' => array('tl_class' => 'w50', 'submitOnChange' => true),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_supplier_order']['producttype'],
         'default' => 'fulfillment',
         'inputType' => 'select',
