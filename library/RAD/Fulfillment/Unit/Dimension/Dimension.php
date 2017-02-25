@@ -41,10 +41,15 @@ class Dimension
     }
 
     /**
+     * @param bool $iso
      * @return string
      */
-    public function getUnit()
+    public function getUnit($iso = false)
     {
+        if ($iso) {
+            return Unit::getISO($this->unit);
+        }
+
         return $this->unit;
     }
 

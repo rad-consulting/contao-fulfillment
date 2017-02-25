@@ -35,11 +35,31 @@ class Unit extends Converter
     );
 
     /**
+     * @var array
+     */
+    protected static $iso = array(
+        self::KILOMETER => 'KMT',
+        self::METER => 'MTR',
+        self::DECIMETER => 'DMT',
+        self::CENTIMETER => 'CMT',
+        self::MILLIMETER => 'MMT',
+    );
+
+    /**
      * @return string
      */
     public static function getBase()
     {
         return static::METER;
+    }
+
+    /**
+     * @param string $noniso
+     * @return string
+     */
+    public static function getISO($noniso)
+    {
+        return static::$iso[$noniso];
     }
 
     /**
