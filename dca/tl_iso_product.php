@@ -63,7 +63,7 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_length'] = array(
     'default' => array('', 'cm'),
     'options' => array('mm', 'cm', 'dm', 'm', 'km'),
     'reference' => &$GLOBALS['TL_LANG']['DIM'],
-    'inputType' => 'text',
+    'inputType' => 'timePeriod',
     'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\Length'),
 );
 
@@ -75,7 +75,7 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_width'] = array(
     'default' => array('', 'cm'),
     'options' => array('mm', 'cm', 'dm', 'm', 'km'),
     'reference' => &$GLOBALS['TL_LANG']['DIM'],
-    'inputType' => 'text',
+    'inputType' => 'timePeriod',
     'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\Width'),
 );
 
