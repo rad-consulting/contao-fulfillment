@@ -68,20 +68,22 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
 
 // Palettes
 $GLOBALS['TL_DCA']['tl_rad_fulfillment']['palettes'] = array(
-    'default' => '{type_legend},id,pid,type;{fulfillment_legend},status,reference,tracking',
+    'default' => '{type_legend},id,pid,producttype;{fulfillment_legend},status,reference,tracking',
 );
 
 // Fields
 $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
     'id' => array(
         'sql' => "int(10) unsigned NOT NULL auto_increment",
-        'eval' => array('readonly' => true),
+        'eval' => array('readonly' => true, 'tl_class' => 'w50'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['id'],
+        'inputType' => 'text',
     ),
     'pid' => array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
-        'eval' => array('readonly' => true),
+        'eval' => array('readonly' => true, 'tl_class' => 'w50'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['pid'],
+        'inputType' => 'text',
     ),
     'ptable' => array(
         'sql' => "varchar(255) NOT NULL default ''",
@@ -92,7 +94,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
     ),
     'producttype' => array(
         'sql' => "varchar(48) NOT NULL default 'fulfillment'",
-        'eval' => array('readonly' => true),
+        'eval' => array('readonly' => true, 'tl_class' => 'w50'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['producttype'],
         'inputType' => 'select',
         'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForProductType'),
@@ -104,13 +106,13 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
     ),
     'tracking' => array(
         'sql' => "varchar(48) NOT NULL default ''",
-        'eval' => array('maxlength' => 48),
+        'eval' => array('maxlength' => 48, 'tl_class' => 'w50'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['tracking'],
         'inputType' => 'text',
     ),
     'reference' => array(
         'sql' => "varchar(48) NOT NULL default ''",
-        'eval' => array('maxlength' => 48),
+        'eval' => array('maxlength' => 48, 'tl_class' => 'w50'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['reference'],
         'inputType' => 'text',
     ),
