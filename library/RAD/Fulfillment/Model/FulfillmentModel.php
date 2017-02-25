@@ -51,14 +51,6 @@ class FulfillmentModel extends AbstractModel
     }
 
     /**
-     * @return Order
-     */
-    public function getOrder()
-    {
-        return Order::findByPk($this->pid);
-    }
-
-    /**
      * @return $this
      */
     public function setCompleted()
@@ -108,6 +100,22 @@ class FulfillmentModel extends AbstractModel
         $this->status = static::DELIVERED;
 
         return $this;
+    }
+
+    /**
+     * @return Order
+     */
+    public function getOrder()
+    {
+        return Order::findByPk($this->pid);
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
     }
 
     /**
