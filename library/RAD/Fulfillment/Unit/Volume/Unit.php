@@ -65,11 +65,10 @@ class Unit extends Converter
     public static function getAll()
     {
         return array(
-            static::MILLIMETER,
-            static::CENTIMETER,
-            static::DECIMETER,
-            static::METER,
-            static::KILOMETER,
+            static::CUBICMILLIMETER,
+            static::CUBICCENTIMETER,
+            static::CUBICDECIMETER,
+            static::CUBICMETER,
         );
     }
 }
