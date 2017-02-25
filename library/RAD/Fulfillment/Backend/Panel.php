@@ -83,9 +83,4 @@ class Panel extends Backend
 
         return $options;
     }
-
-    public function onSubmitSupplierOrder()
-    {
-        
-    }
 }
