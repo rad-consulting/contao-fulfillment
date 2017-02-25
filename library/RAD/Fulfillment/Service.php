@@ -11,12 +11,13 @@ use Exception;
 use RAD\Event\EventDispatcher;
 use RAD\Event\Model\EventModel as Event;
 use Isotope\Model\ProductCollection\Order;
-use RAD\Event\EventSubscriberInterface;
+use RAD\Event\EventSubscriberInterface as EventSubscriber;
+use RAD\Fulfillment\Model\Product\FulfillmentProduct;
 
 /**
  * Class Service
  */
-class Service implements EventSubscriberInterface
+class Service implements EventSubscriber
 {
     /**
      * @return array
@@ -32,7 +33,7 @@ class Service implements EventSubscriberInterface
      * @param Order $order
      * @return void
      */
-    public function postCheckout(Order $order)
+    public function onPostCheckout(Order $order)
     {
         EventDispatcher::getInstance()->dispatch('order.create', $order);
     }
@@ -44,5 +45,17 @@ class Service implements EventSubscriberInterface
      */
     public function onCreateOrder(Event $event)
     {
+        $order = $event->getSubject();
+
+        if ($order instanceof Order) {
+            foreach ($order->getItems() as $item) {
+                $product = FulfillmentProduct::findByPk($item->product_id);
+
+                if ($product instanceof FulfillmentProduct) {
+                    $product->setStock($product->getStock() + $item->quantity);
+                    $product->save();
+                }
+            }
+        }
     }
 }
