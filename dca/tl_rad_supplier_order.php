@@ -16,7 +16,7 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['config'] = array(
         ),
     ),
     'onsubmit_callback' => array(
-        array('RAD\\Fulfillment\\Backend\\Callback', 'submitSupplierOrder'),
+        array('RAD\\Fulfillment\\Backend\\Panel', 'onSubmitSupplierOrder'),
     ),
 );
 
