@@ -89,10 +89,10 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['fields'] = array(
         'inputType' => 'text',
     ),
     'producttype' => array(
-        'sql' => "varchar(64) NOT NULL default 'fulfillment'",
+        'sql' => "varchar(64) NOT NULL default 'standard'",
         'eval' => array('tl_class' => 'w50', 'chosen' => true, 'submitOnChange' => true),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_supplier_order']['producttype'],
-        'default' => 'fulfillment',
+        'default' => 'standard',
         'inputType' => 'select',
         'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsProductType'),
     ),
