@@ -7,56 +7,13 @@
  */
 namespace RAD\Fulfillment\Model\Attribute;
 
-use Contao\Database\Result;
-use Isotope\Interfaces\IsotopeProduct;
-use Isotope\Isotope;
-use Isotope\Model\Attribute;
-use RAD\Fulfillment\Model\Product\FulfillmentProduct;
-
 /**
  * Class Length
  */
-class Length extends Attribute
+class Length extends ValueAndUnit
 {
     /**
      * @inheritdoc
      */
-    public function __construct(Result $result = null)
-    {
-        $this->arrData['type'] = 'length';
-
-        parent::__construct($result);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getBackendWidget()
-    {
-        return $GLOBALS['BE_FFL']['timePeriod'];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getFrontendWidget()
-    {
-        return false;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function generate(IsotopeProduct $objProduct, array $arrOptions = array())
-    {
-        if (!($objProduct instanceof FulfillmentProduct) || !($length = $objProduct->getLength()) === null) {
-            return '';
-        }
-
-        return sprintf(
-            $arrOptions['format'] ?: '%s %s',
-            Isotope::formatPrice($length->getValue(), false),
-            $length->getUnit()
-        );
-    }
+    const PROPERTY = 'length';
 }
