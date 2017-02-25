@@ -8,5 +8,6 @@
  */
 
 // Backend modules
-$GLOBALS['TL_LANG']['MOD']['fulfillments'] = array('Distanzhandel');
-$GLOBALS['TL_LANG']['MOD']['supplierorders'] = array('Lieferantenbestellung');
+$GLOBALS['TL_LANG']['MOD']['fulfillment'] = array('Distanzhandel');
+$GLOBALS['TL_LANG']['MOD']['fulfillments'] = array('Warenausgang');
+$GLOBALS['TL_LANG']['MOD']['supplierorders'] = array('Wareneingang');

@@ -13,12 +13,16 @@ $GLOBALS['ISO_HOOKS']['postCheckout'][] = array('RAD\\Fulfillment\\Service', 'po
 $GLOBALS['RAD_SUBSCRIBERS'][] = 'RAD\\Fulfillment\\Service';
 $GLOBALS['BE_MOD']['isotope']['iso_products']['tables'][] = 'tl_rad_log';
 
-$GLOBALS['BE_MOD']['isotope']['fulfillments'] = array(
-    'tables' => array('tl_rad_fulfillment', 'tl_rad_log'),
-    'icon' => 'system/themes/flexible/images/about.gif',
-);
-
-$GLOBALS['BE_MOD']['isotope']['supplierorders'] = array(
-    'tables' => array('tl_rad_supplier_order', 'tl_rad_log'),
-    'icon' => 'system/themes/flexible/images/about.gif',
-);
+if (!is_array($GLOBALS['BE_MOD']['fulfillment'])) {
+    $index = array_search('isotope', array_keys($GLOBALS['BE_MOD']));
+    array_insert($GLOBALS['BE_MOD'], $index + 1, array('fulfillment' => array(
+        'fulfillments' => array(
+            'tables' => array('tl_rad_fulfillment', 'tl_rad_log'),
+            'icon' => 'system/themes/flexible/images/about.gif',
+        ),
+        'supplierorders' => array(
+            'tables' => array('tl_rad_supplier_order', 'tl_rad_log'),
+            'icon' => 'system/themes/flexible/images/about.gif',
+        ),
+    )));
+}
