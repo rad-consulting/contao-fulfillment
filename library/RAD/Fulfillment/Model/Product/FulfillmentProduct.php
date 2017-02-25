@@ -12,6 +12,8 @@ use Haste\Units\Mass;
 use Isotope\Model\Product\Standard;
 use RAD\Log\Model\LogModel as Log;
 use RAD\Fulfillment\Unit\Dimension;
+use RAD\Fulfillment\Unit\EAN;
+use RAD\Fulfillment\Unit\Volume;
 
 /**
  * Class FulfillmentProduct
@@ -36,7 +38,11 @@ class FulfillmentProduct extends Standard
      */
     public function getEAN()
     {
-        return $this->rad_ean;
+        if (!isset($this->arrData['rad_ean'])) {
+            return new EAN\EAN(0, EAN\Unit::HE);
+        }
+
+        return EAN\EAN::createFromTimePeriod($this->arrData['rad_ean']);
     }
 
     /**
@@ -177,11 +183,15 @@ class FulfillmentProduct extends Standard
     }
 
     /**
-     * @return float
+     * @return Volume\Volume
      */
     public function getVolume()
     {
-        return $this->rad_volume;
+        if (!isset($this->arrData['rad_volume'])) {
+            return new Volume\Volume(0, Volume\Unit::CUBICCENTIMETER);
+        }
+
+        return Volume\Volume::createFromTimePeriod($this->arrData['rad_volume']);
     }
 
     /**

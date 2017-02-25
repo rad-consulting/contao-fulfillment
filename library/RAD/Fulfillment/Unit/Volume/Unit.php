@@ -5,7 +5,7 @@
  * @author     Olivier Dahinden <o.dahinden@rad-consulting.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
-namespace RAD\Fulfillment\Unit\Dimension;
+namespace RAD\Fulfillment\Unit\Volume;
 
 use Haste\Units\Converter;
 
@@ -17,32 +17,29 @@ class Unit extends Converter
     /**
      * @const string
      */
-    const KILOMETER = 'km';
-    const METER = 'm';
-    const DECIMETER = 'dm';
-    const CENTIMETER = 'cm';
-    const MILLIMETER = 'mm';
+    const CUBICMETER = 'm3';
+    const CUBICDECIMETER = 'dm3';
+    const CUBICCENTIMETER = 'cm3';
+    const CUBICMILLIMETER = 'mm3';
 
     /**
      * @var array
      */
     protected static $arrFactors = array(
-        self::KILOMETER => 0.00001,
-        self::METER => 0.01,
-        self::DECIMETER => 0.1,
-        self::CENTIMETER => 1,
-        self::MILLIMETER => 10,
+        self::CUBICMETER => 0.000001,
+        self::CUBICDECIMETER => 0.001,
+        self::CUBICCENTIMETER => 1,
+        self::CUBICMILLIMETER => 1000,
     );
 
     /**
      * @var array
      */
     protected static $iso = array(
-        self::KILOMETER => 'KMT',
-        self::METER => 'MTR',
-        self::DECIMETER => 'DMT',
-        self::CENTIMETER => 'CMT',
-        self::MILLIMETER => 'MMT',
+        self::CUBICMETER => 'MTQ',
+        self::CUBICDECIMETER => 'DMQ',
+        self::CUBICCENTIMETER => 'CMQ',
+        self::CUBICMILLIMETER => 'MMT',
     );
 
     /**
@@ -50,7 +47,7 @@ class Unit extends Converter
      */
     public static function getBase()
     {
-        return static::CENTIMETER;
+        return static::CUBICCENTIMETER;
     }
 
     /**

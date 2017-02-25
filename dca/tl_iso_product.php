@@ -16,14 +16,15 @@ $GLOBALS['TL_DCA']['tl_iso_product']['list']['operations']['log'] = array(
 );
 
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_ean'] = array(
-    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_ean'],
-    'exclude' => true,
-    'search' => true,
-    'sorting' => true,
-    'inputType' => 'text',
+    'sql' => "varchar(255) NOT NULL default ''",
     'eval' => array('maxlength' => 18, 'unique' => true, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50'),
-    'attributes' => array('legend' => 'fulfillment_legend', 'fe_sorting' => true, 'fe_search' => true, 'singular' => true),
-    'sql' => "varchar(18) NOT NULL default ''",
+    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_length'],
+    'exclude' => true,
+    'default' => array('', 'HE'),
+    'options' => array('HE', 'E5', 'EA', 'HK', 'I6', 'IC', 'IE', 'IK', 'SA', 'SG', 'UC', 'VC'),
+    'reference' => &$GLOBALS['TL_LANG']['EAN'],
+    'inputType' => 'timePeriod',
+    'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\EAN'),
 );
 
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_sku'] = array(
@@ -92,12 +93,15 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_height'] = array(
 );
 
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_volume'] = array(
+    'sql' => "varchar(255) NOT NULL default ''",
+    'eval' => array('maxlength' => 10, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50'),
     'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_volume'],
     'exclude' => true,
-    'inputType' => 'text',
-    'eval' => array('maxlength' => 10, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50'),
-    'attributes' => array('legend' => 'dimension_legend', 'singular' => true),
-    'sql' => "decimal(8,2) NOT NULL default '0.00'",
+    'default' => array('', 'cm3'),
+    'options' => array('mm3', 'cm3', 'dm3', 'm3'),
+    'reference' => &$GLOBALS['TL_LANG']['VOL'],
+    'inputType' => 'timePeriod',
+    'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\Volume'),
 );
 
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_weight'] = array(
