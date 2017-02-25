@@ -17,6 +17,8 @@ use RAD\Log\Model\LogModel as Log;
  * @property int    $pid
  * @property int    $status
  * @property int    $tstamp
+ * @property string $type
+ * @property string $ptable
  * @property string $reference
  * @property string $tracking
  */
@@ -28,8 +30,9 @@ class FulfillmentModel extends AbstractModel
     const PENDING = 0;
     const SENT = 1;
     const CONFIRMED = 2;
-    const DELIVERED = 4;
-    const COMPLETED = 8;
+    const REJECTED = 4;
+    const DELIVERED = 8;
+    const COMPLETED = 16;
 
     /**
      * @var string
@@ -37,17 +40,35 @@ class FulfillmentModel extends AbstractModel
     public static $strTable = 'tl_rad_fulfillment';
 
     /**
-     * @param Order $order
+     * @param Order  $order
+     * @param string $type
      * @return static
      */
-    public static function factory(Order $order)
+    public static function factory(Order $order, $type = 'fulfillment')
     {
         $instance = new static();
         $instance->pid = $order->id;
+        $instance->ptable = $order::getTable();
         $instance->status = static::PENDING;
         $instance->tstamp = time();
+        $instance->type = $type;
 
         return $instance;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getStatus()
+    {
+        return array(
+            static::PENDING,
+            static::SENT,
+            static::CONFIRMED,
+            static::REJECTED,
+            static::DELIVERED,
+            static::COMPLETED,
+        );
     }
 
     /**
@@ -98,6 +119,22 @@ class FulfillmentModel extends AbstractModel
         }
 
         $this->status = static::DELIVERED;
+
+        return $this;
+    }
+
+    /**
+     * @param string|null $message
+     * @param string|null $data
+     * @return $this
+     */
+    public function setRejected($message = null, $data = null)
+    {
+        if ($message) {
+            $this->log($message, Log::INFO, $data);
+        }
+
+        $this->status = static::REJECTED;
 
         return $this;
     }

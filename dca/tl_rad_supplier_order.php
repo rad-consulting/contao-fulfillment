@@ -91,7 +91,7 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['fields'] = array(
         'label' => &$GLOBALS['TL_LANG']['tl_rad_supplier_order']['producttype'],
         'default' => 'standard',
         'inputType' => 'select',
-        'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsProductType'),
+        'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForProductType'),
     ),
     'positions' => array(
         'sql' => "blob NULL",
@@ -105,7 +105,7 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['fields'] = array(
                     'label' => &$GLOBALS['TL_LANG']['tl_rad_supplier_order']['product'],
                     'inputType' => 'select',
                     'reference' => &$GLOBALS['TL_LANG']['MODEL']['tl_iso_product'],
-                    'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsProduct'),
+                    'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForProduct'),
                 ),
                 'quantity' => array(
                     'eval' => array('mandatory' => true, 'rgxp' => 'digit', 'style' => 'width:50px'),

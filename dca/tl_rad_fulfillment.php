@@ -14,7 +14,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['config'] = array(
     'sql' => array(
         'keys' => array(
             'id' => 'primary',
-            'pid,subscriber' => 'unique',
+            'pid,ptable,type' => 'unique',
         ),
     ),
 );
@@ -28,7 +28,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
         'flag' => 12,
     ),
     'label' => array(
-        'fields' => array('id', 'tstamp', 'pid', 'subscriber', 'status', 'reference', 'tracking'),
+        'fields' => array('id', 'tstamp', 'pid', 'type', 'status', 'reference', 'tracking'),
         'showColumns' => true,
         'label_callback' => array('RAD\\Fulfillment\\Backend\\Listing', 'listFulfillment'),
     ),
@@ -46,6 +46,11 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
             'href' => 'table=tl_rad_log',
             'icon' => 'news.gif',
             'button_callback' => array('RAD\\Log\\Backend\\Button', 'forLog'),
+        ),
+        'edit' => array(
+            'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['edit'],
+            'href' => 'act=edit',
+            'icon' => 'edit.gif',
         ),
         'delete' => array(
             'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['delete'],
@@ -71,14 +76,17 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['pid'],
     ),
+    'ptable' => array(
+        'sql' => "varchar(255) NOT NULL default ''",
+    ),
     'tstamp' => array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['tstamp'],
     ),
-    'subscriber' => array(
+    'type' => array(
         'sql' => "varchar(48) NOT NULL default ''",
         'eval' => array('readonly' => true),
-        'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['subscriber'],
+        'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['type'],
     ),
     'items' => array(
         'sql' => "varchar(48) NOT NULL default ''",
@@ -100,5 +108,8 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
     'status' => array(
         'sql' => "int(10) unsigned NOT NULL default '1'",
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['status'],
+        'reference' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['status.reference'],
+        'inputType' => 'select',
+        'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForStatus'),
     ),
 );

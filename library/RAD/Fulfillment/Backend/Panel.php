@@ -13,6 +13,7 @@ use Contao\DataContainer;
 use Isotope\Model\Product;
 use Isotope\Model\ProductType;
 use MultiColumnWizard;
+use RAD\Fulfillment\Model\FulfillmentModel;
 
 /**
  * Class Panel
@@ -20,10 +21,19 @@ use MultiColumnWizard;
 class Panel extends Backend
 {
     /**
+     * @param DataContainer $dc
+     * @return array
+     */
+    public function getOptionsForStatus(DataContainer $dc)
+    {
+        return FulfillmentModel::getStatus();
+    }
+
+    /**
      * @param DataContainer|MultiColumnWizard $dc
      * @return array
      */
-    public function getOptionsProduct($dc)
+    public function getOptionsForProduct($dc)
     {
         if ($dc instanceof MultiColumnWizard) {
             $dc = $dc->dataContainer;
@@ -71,7 +81,7 @@ class Panel extends Backend
      * @param DataContainer $dc
      * @return array
      */
-    public function getOptionsProductType(DataContainer $dc)
+    public function getOptionsForProductType(DataContainer $dc)
     {
         $options = array();
 
