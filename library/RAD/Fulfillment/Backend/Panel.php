@@ -13,7 +13,7 @@ use Contao\DataContainer;
 use Isotope\Model\Product;
 use Isotope\Model\ProductType;
 use MultiColumnWizard;
-use RAD\Fulfillment\Model\FulfillmentModel;
+use RAD\Fulfillment\Model\Fulfillment;
 
 /**
  * Class Panel
@@ -26,7 +26,7 @@ class Panel extends Backend
      */
     public function getOptionsForStatus(DataContainer $dc)
     {
-        return FulfillmentModel::getStatus();
+        return Fulfillment::getStatus();
     }
 
     /**
