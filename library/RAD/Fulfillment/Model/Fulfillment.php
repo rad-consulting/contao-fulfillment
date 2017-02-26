@@ -8,10 +8,10 @@
 namespace RAD\Fulfillment\Model;
 
 use Isotope\Model\ProductCollection\Order;
-use RAD\Log\Model\LogModel as Log;
+use RAD\Log\Model\Log;
 
 /**
- * Class FulfillmentModel
+ * Class Fulfillment
  *
  * @property int    $id
  * @property int    $pid
@@ -22,7 +22,7 @@ use RAD\Log\Model\LogModel as Log;
  * @property string $reference
  * @property string $tracking
  */
-class FulfillmentModel extends AbstractModel
+class Fulfillment extends AbstractModel
 {
     /**
      * @const int

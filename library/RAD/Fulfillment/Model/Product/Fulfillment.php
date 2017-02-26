@@ -10,13 +10,13 @@ namespace RAD\Fulfillment\Model\Product;
 use Exception;
 use Haste\Units\Mass;
 use Isotope\Model\Product\Standard;
-use RAD\Log\Model\LogModel as Log;
+use RAD\Log\Model\Log;
 use RAD\Fulfillment\Unit\Dimension;
 use RAD\Fulfillment\Unit\EAN;
 use RAD\Fulfillment\Unit\Volume;
 
 /**
- * Class FulfillmentProduct
+ * Class Fulfillment
  *
  * @property int    $id
  * @property int    $rad_ean
@@ -31,7 +31,7 @@ use RAD\Fulfillment\Unit\Volume;
  * @property string $rad_sku
  * @property string $rad_volume
  */
-class FulfillmentProduct extends Standard
+class Fulfillment extends Standard
 {
     /**
      * @inheritdoc

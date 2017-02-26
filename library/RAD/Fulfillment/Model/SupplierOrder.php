@@ -7,16 +7,16 @@
  */
 namespace RAD\Fulfillment\Model;
 
-use RAD\Log\Model\LogModel as Log;
+use RAD\Log\Model\Log;
 
 /**
- * Class SupplierOrderModel
+ * Class SupplierOrder
  *
  * @property int    $export
  * @property int    $exported
  * @property string $positions
  */
-class SupplierOrderModel extends AbstractModel
+class SupplierOrder extends AbstractModel
 {
     /**
      * @var string
