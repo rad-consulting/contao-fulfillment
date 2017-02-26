@@ -10,7 +10,7 @@ namespace RAD\Fulfillment\Model;
 use Exception;
 use Contao\Model;
 use RAD\Log\LogInterface;
-use RAD\Log\Model\LogModel as Log;
+use RAD\Log\Model\Log;
 
 /**
  * Class AbstractModel

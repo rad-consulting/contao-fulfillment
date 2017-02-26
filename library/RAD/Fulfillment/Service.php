@@ -9,10 +9,10 @@ namespace RAD\Fulfillment;
 
 use Exception;
 use RAD\Event\EventDispatcher;
-use RAD\Event\Model\EventModel as Event;
+use RAD\Event\Model\Event;
 use Isotope\Model\ProductCollection\Order;
 use RAD\Event\EventSubscriberInterface as EventSubscriber;
-use RAD\Fulfillment\Model\Product\FulfillmentProduct;
+use RAD\Fulfillment\Model\Product\Fulfillment;
 
 /**
  * Class Service
@@ -49,9 +49,9 @@ class Service implements EventSubscriber
 
         if ($order instanceof Order) {
             foreach ($order->getItems() as $item) {
-                $product = FulfillmentProduct::findByPk($item->product_id);
+                $product = Fulfillment::findByPk($item->product_id);
 
-                if ($product instanceof FulfillmentProduct) {
+                if ($product instanceof Fulfillment) {
                     $product->setStock($product->getStock() - $item->quantity);
                     $product->save();
                 }

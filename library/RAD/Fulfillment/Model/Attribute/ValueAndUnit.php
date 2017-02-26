@@ -11,7 +11,7 @@ use Contao\Database\Result;
 use Isotope\Interfaces\IsotopeProduct;
 use Isotope\Isotope;
 use Isotope\Model\Attribute;
-use RAD\Fulfillment\Model\Product\FulfillmentProduct;
+use RAD\Fulfillment\Model\Product\Fulfillment;
 
 /**
  * Class ValueAndUnit
@@ -56,7 +56,7 @@ abstract class ValueAndUnit extends Attribute
     {
         $method = 'get' . ucfirst(static::PROPERTY);
 
-        if (!($objProduct instanceof FulfillmentProduct) || !($instance = $objProduct->$method()) === null) {
+        if (!($objProduct instanceof Fulfillment) || !($instance = $objProduct->$method()) === null) {
             return '';
         }
 
