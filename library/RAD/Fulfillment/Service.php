@@ -8,11 +8,13 @@
 namespace RAD\Fulfillment;
 
 use Exception;
+use Isotope\Model\OrderStatus;
 use RAD\Event\EventDispatcher;
 use RAD\Event\Model\Event;
 use Isotope\Model\ProductCollection\Order;
 use RAD\Event\EventSubscriberInterface as EventSubscriber;
-use RAD\Fulfillment\Model\Product\Fulfillment;
+use RAD\Fulfillment\Model\Fulfillment;
+use RAD\Fulfillment\Model\Product\Fulfillment as FulfillmentProduct;
 
 /**
  * Class Service
@@ -26,6 +28,7 @@ class Service implements EventSubscriber
     {
         return array(
             'order.create' => 'onCreateOrder',
+            'fulfillment.complete' => 'onCompleteFulfillment',
         );
     }
 
@@ -49,13 +52,38 @@ class Service implements EventSubscriber
 
         if ($order instanceof Order) {
             foreach ($order->getItems() as $item) {
-                $product = Fulfillment::findByPk($item->product_id);
+                $product = FulfillmentProduct::findByPk($item->product_id);
 
-                if ($product instanceof Fulfillment) {
+                if ($product instanceof FulfillmentProduct) {
                     $product->setStock($product->getStock() - $item->quantity);
                     $product->save();
                 }
             }
+        }
+    }
+
+    /**
+     * @param Event $event
+     * @return void
+     */
+    public function onCompleteFulfillment(Event $event)
+    {
+        $model = $event->getSubject();
+
+        if ($model instanceof Fulfillment) {
+            $order = $model->getOrder();
+            $model->setCompleted()->save();
+
+            $fulfillments = Fulfillment::findBy('pid', $order->getId());
+
+            foreach ($fulfillments as $fulfillment) {
+                if ($fulfillment instanceof Fulfillment && Fulfillment::COMPLETED != $fulfillment->status) {
+                    return;
+                }
+            }
+
+            $status = OrderStatus::findBy('name', 'Completed');
+            $order->updateOrderStatus($status->id);
         }
     }
 }
