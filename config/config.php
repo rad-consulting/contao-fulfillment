@@ -26,3 +26,17 @@ if (!is_array($GLOBALS['BE_MOD']['fulfillment'])) {
         ),
     )));
 }
+
+$GLOBALS['RAD_LOG_ENTITIES']['fulfillments'] = array(
+    'ptable' => 'tl_rad_fulfillment',
+);
+
+$GLOBALS['RAD_LOG_ENTITIES']['supplierorders'] = array(
+    'ptable' => 'tl_rad_supplier_order',
+    'headerFields' => array('id', 'name', 'tstamp'),
+);
+
+$GLOBALS['RAD_LOG_ENTITIES']['iso_products'] = array(
+    'ptable' => 'tl_iso_product',
+    'headerFields' => array('id', 'name', 'tstamp'),
+);
