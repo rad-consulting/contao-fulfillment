@@ -20,10 +20,10 @@ $GLOBALS['TL_LANG']['tl_rad_fulfillment']['tracking'] = array('Tracking-Nummern'
 
 // Reference
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['status.reference'] = array(
-    \RAD\Fulfillment\Model\FulfillmentModel::PENDING => 'Pendent',
-    \RAD\Fulfillment\Model\FulfillmentModel::SENT => 'Übermittelt',
-    \RAD\Fulfillment\Model\FulfillmentModel::CONFIRMED => 'Bestätigt',
-    \RAD\Fulfillment\Model\FulfillmentModel::REJECTED => 'Abgelehnt',
-    \RAD\Fulfillment\Model\FulfillmentModel::DELIVERED => 'Ausgeliefert',
-    \RAD\Fulfillment\Model\FulfillmentModel::COMPLETED => 'Abgeschlossen',
+    \RAD\Fulfillment\Model\Fulfillment::PENDING => 'Pendent',
+    \RAD\Fulfillment\Model\Fulfillment::SENT => 'Übermittelt',
+    \RAD\Fulfillment\Model\Fulfillment::CONFIRMED => 'Bestätigt',
+    \RAD\Fulfillment\Model\Fulfillment::REJECTED => 'Abgelehnt',
+    \RAD\Fulfillment\Model\Fulfillment::DELIVERED => 'Ausgeliefert',
+    \RAD\Fulfillment\Model\Fulfillment::COMPLETED => 'Abgeschlossen',
 );
