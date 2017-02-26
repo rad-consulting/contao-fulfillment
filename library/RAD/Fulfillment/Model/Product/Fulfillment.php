@@ -46,6 +46,18 @@ class Fulfillment extends Standard
     }
 
     /**
+     * @param EAN\EAN|string $ean
+     * @param string         $type
+     * @return $this
+     */
+    public function setEAN($ean, $type = EAN\Unit::HE)
+    {
+        $this->rad_ean = serialize(array('value' => $ean instanceof EAN\EAN ? $ean->getValue() : $ean, 'unit' => $ean instanceof EAN\EAN ? $ean->getUnit() : $type));
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getSKU()
