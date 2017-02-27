@@ -7,9 +7,12 @@
  */
 namespace RAD\Fulfillment\Model\Product;
 
+use Contao\Database;
+use Contao\Model\Collection;
 use Exception;
 use Haste\Units\Mass;
 use Isotope\Model\Product\Standard;
+use Isotope\Model\ProductType;
 use RAD\Log\Model\Log;
 use RAD\Fulfillment\Unit\Dimension;
 use RAD\Fulfillment\Unit\EAN;
@@ -33,6 +36,20 @@ use RAD\Fulfillment\Unit\Volume;
  */
 class Fulfillment extends Standard
 {
+    /**
+     * @param string $type
+     * @param array  $options
+     * @return Collection
+     */
+    public static function findByType($type, array $options = array())
+    {
+        $db = Database::getInstance();
+        $types = $db->prepare('SELECT GROUP_CONCAT(id) AS ids FROM ' . ProductType::getTable() . ' WHERE `class` = ?')->execute($type);
+        $result = $db->prepare(' SELECT * FROM ' . static::getTable() . ' WHERE `pid` = 0 AND `type` IN (' . $types->ids . ') ORDER BY `name` ASC')->execute();
+
+        return Collection::createFromDbResult($result, static::getTable());
+    }
+
     /**
      * @inheritdoc
      */
