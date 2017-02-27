@@ -15,7 +15,6 @@ use Isotope\Model\ProductCollection\Order;
  */
 class Listing
 {
-
     /**
      * @param array         $row
      * @param string        $label
@@ -29,6 +28,20 @@ class Listing
 
         $args[1] = date('Y-m-d H:i:s', $row['tstamp']);
         $args[2] = $order->document_number;
+
+        return $args;
+    }
+
+    /**
+     * @param array         $row
+     * @param string        $label
+     * @param DataContainer $dc
+     * @param array         $args
+     * @return array
+     */
+    public function listMasterData(array &$row, $label, DataContainer $dc, array &$args)
+    {
+        $args[1] = date('Y-m-d H:i:s', $row['tstamp']);
 
         return $args;
     }
