@@ -103,18 +103,6 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_volume'] = array(
     'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\Volume'),
 );
 
-$GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_weight'] = array(
-    'eval' => array('maxlength' => 10, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50', 'helpwizard' => true),
-    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_weight'],
-    'exclude' => true,
-    'default' => array('', 'kg'),
-    'options' => array('mg', 'g', 'kg', 't', 'ct', 'oz', 'lb', 'st', 'grain'),
-    'reference' => &$GLOBALS['TL_LANG']['WGT'],
-    'inputType' => 'timePeriod',
-    'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'Isotope\\Model\\Attribute\\Weight'),
-    'sql' => "varchar(255) NOT NULL default ''",
-);
-
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_export'] = array(
     'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_export'],
     'exclude' => true,

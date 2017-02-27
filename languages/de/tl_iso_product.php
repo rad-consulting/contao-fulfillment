@@ -17,7 +17,6 @@ $GLOBALS['TL_LANG']['tl_iso_product']['rad_ean'] = array('EAN', 'European Articl
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_sku'] = array('SKU', 'SKU des Produkts beim Lieferanten.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_stock'] = array('Lagerbestand', 'Lagerbestand des Produkts beim Lieferanten.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_update'] = array('Synchronisation', 'Letzte Synchronisation des Produktes mit dem Lieferanten.');
-$GLOBALS['TL_LANG']['tl_iso_product']['rad_weight'] = array('Gewicht (Netto)', 'Netto-Gewicht des Produkts.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_width'] = array('Breite', 'Breite des Produkts.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_height'] = array('Höhe', 'Höhe des Produkts.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_length'] = array('Länge', 'Länge des Produkts.');
