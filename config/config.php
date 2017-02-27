@@ -7,7 +7,7 @@
  */
 
 // Models
-\Isotope\Model\Shipping::registerModelType('swisspost', 'RAD\\YellowCube\\Model\\Shipping\\Swisspost');
+\Isotope\Model\Shipping::registerModelType('swisspost', 'RAD\\Fulfillment\\Model\\Shipping\\Swisspost');
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\Fulfillment::getTable()] = 'RAD\\Fulfillment\\Model\\Fulfillment';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\SupplierOrder::getTable()] = 'RAD\\Fulfillment\\Model\\SupplierOrder';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\Product\Fulfillment::getTable()] = 'RAD\\Fulfillment\\Model\\Product\\Fulfillment';
