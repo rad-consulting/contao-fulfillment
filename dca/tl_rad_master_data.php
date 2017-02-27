@@ -26,7 +26,7 @@ $GLOBALS['TL_DCA']['tl_rad_master_data']['list'] = array(
         'flag' => 12,
     ),
     'label' => array(
-        'fields' => array('id', 'tstamp', 'name'),
+        'fields' => array('id', 'tstamp', 'producttype'),
         'showColumns' => true,
         'label_callback' => array('RAD\\Fulfillment\\Backend\\Listing', 'listMasterData'),
     ),
