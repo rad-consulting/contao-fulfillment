@@ -8,7 +8,7 @@
  */
 
 // Buttons
-$GLOBALS['TL_LANG']['tl_rad_master_data']['new'] = 'Neuer Artikelstamm';
+$GLOBALS['TL_LANG']['tl_rad_master_data']['new'] = array('Neuer Artikelstamm');
 
 // Legends
 $GLOBALS['TL_LANG']['tl_rad_master_data']['type_legend'] = 'Artikelstamm';

@@ -8,7 +8,7 @@
  */
 
 // Buttons
-$GLOBALS['TL_LANG']['tl_rad_supplier_order']['new'] = 'Neue Lieferantenbestellung';
+$GLOBALS['TL_LANG']['tl_rad_supplier_order']['new'] = array('Neue Lieferantenbestellung');
 
 // Legends
 $GLOBALS['TL_LANG']['tl_rad_supplier_order']['order_legend'] = 'Lieferantenbestellung';
