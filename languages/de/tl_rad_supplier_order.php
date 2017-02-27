@@ -10,6 +10,7 @@
 // Legends
 $GLOBALS['TL_LANG']['tl_rad_supplier_order']['order_legend'] = 'Lieferantenbestellung';
 $GLOBALS['TL_LANG']['tl_rad_supplier_order']['position_legend'] = 'Bestellpositionen';
+$GLOBALS['TL_LANG']['tl_rad_supplier_order']['export_legend'] = 'Export';
 
 // Fields
 $GLOBALS['TL_LANG']['tl_rad_supplier_order']['id'] = array('ID');
