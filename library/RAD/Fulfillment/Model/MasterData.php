@@ -12,8 +12,9 @@ use RAD\Log\Model\Log;
 /**
  * Class MasterData
  *
- * @property int $export
- * @property int $exported
+ * @property string $producttype
+ * @property int    $export
+ * @property int    $exported
  */
 class MasterData extends AbstractModel
 {
