@@ -7,6 +7,9 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
+// Buttons
+$GLOBALS['TL_LANG']['tl_rad_master_data']['new'] = 'Neuer Artikelstamm';
+
 // Legends
 $GLOBALS['TL_LANG']['tl_rad_master_data']['type_legend'] = 'Artikelstamm';
 $GLOBALS['TL_LANG']['tl_rad_master_data']['export_legend'] = 'Export';

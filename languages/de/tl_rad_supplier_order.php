@@ -7,6 +7,9 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
+// Buttons
+$GLOBALS['TL_LANG']['tl_rad_supplier_order']['new'] = 'Neue Lieferantenbestellung';
+
 // Legends
 $GLOBALS['TL_LANG']['tl_rad_supplier_order']['order_legend'] = 'Lieferantenbestellung';
 $GLOBALS['TL_LANG']['tl_rad_supplier_order']['position_legend'] = 'Bestellpositionen';
