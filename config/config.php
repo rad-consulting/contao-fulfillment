@@ -11,7 +11,6 @@
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\Fulfillment::getTable()] = 'RAD\\Fulfillment\\Model\\Fulfillment';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\MasterData::getTable()] = 'RAD\\Fulfillment\\Model\\MasterData';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\SupplierOrder::getTable()] = 'RAD\\Fulfillment\\Model\\SupplierOrder';
-$GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\Product\Fulfillment::getTable()] = 'RAD\\Fulfillment\\Model\\Product\\Fulfillment';
 
 $GLOBALS['ISO_HOOKS']['postCheckout'][] = array('RAD\\Fulfillment\\Service', 'onPostCheckout');
 $GLOBALS['RAD_SUBSCRIBERS'][] = 'RAD\\Fulfillment\\Service';
