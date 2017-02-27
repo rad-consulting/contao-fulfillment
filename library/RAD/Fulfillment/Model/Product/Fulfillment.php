@@ -135,17 +135,6 @@ class Fulfillment extends Standard
     }
 
     /**
-     * @param bool $export
-     * @return $this
-     */
-    public function setExport($export = true)
-    {
-        $this->rad_export = (bool)$export;
-
-        return $this;
-    }
-
-    /**
      * @param bool        $exported
      * @param string|null $message
      * @param string|null $data
