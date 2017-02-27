@@ -6,9 +6,12 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
+// Models
+\Isotope\Model\Shipping::registerModelType('swisspost', 'RAD\\YellowCube\\Model\\Shipping\\Swisspost');
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\Fulfillment::getTable()] = 'RAD\\Fulfillment\\Model\\Fulfillment';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\SupplierOrder::getTable()] = 'RAD\\Fulfillment\\Model\\SupplierOrder';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\Product\Fulfillment::getTable()] = 'RAD\\Fulfillment\\Model\\Product\\Fulfillment';
+
 $GLOBALS['ISO_HOOKS']['postCheckout'][] = array('RAD\\Fulfillment\\Service', 'onPostCheckout');
 $GLOBALS['RAD_SUBSCRIBERS'][] = 'RAD\\Fulfillment\\Service';
 $GLOBALS['BE_MOD']['isotope']['iso_products']['tables'][] = 'tl_rad_log';
