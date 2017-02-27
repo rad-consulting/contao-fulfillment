@@ -55,54 +55,6 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_update'] = array(
     'sql' => "int(10) NOT NULL default '0'",
 );
 
-$GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_length'] = array(
-    'sql' => "varchar(255) NOT NULL default ''",
-    'eval' => array('maxlength' => 10, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50'),
-    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_length'],
-    'exclude' => true,
-    'default' => array('', 'cm'),
-    'options' => array('mm', 'cm', 'dm', 'm', 'km'),
-    'reference' => &$GLOBALS['TL_LANG']['DIM'],
-    'inputType' => 'timePeriod',
-    'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\Length'),
-);
-
-$GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_width'] = array(
-    'sql' => "varchar(255) NOT NULL default ''",
-    'eval' => array('maxlength' => 10, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50'),
-    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_width'],
-    'exclude' => true,
-    'default' => array('', 'cm'),
-    'options' => array('mm', 'cm', 'dm', 'm', 'km'),
-    'reference' => &$GLOBALS['TL_LANG']['DIM'],
-    'inputType' => 'timePeriod',
-    'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\Width'),
-);
-
-$GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_height'] = array(
-    'sql' => "varchar(255) NOT NULL default ''",
-    'eval' => array('maxlength' => 10, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50'),
-    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_height'],
-    'exclude' => true,
-    'default' => array('', 'cm'),
-    'options' => array('mm', 'cm', 'dm', 'm', 'km'),
-    'reference' => &$GLOBALS['TL_LANG']['DIM'],
-    'inputType' => 'timePeriod',
-    'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\Height'),
-);
-
-$GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_volume'] = array(
-    'sql' => "varchar(255) NOT NULL default ''",
-    'eval' => array('maxlength' => 10, 'rgxp' => 'digit', 'mandatory' => true, 'tl_class' => 'w50'),
-    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_volume'],
-    'exclude' => true,
-    'default' => array('', 'cm3'),
-    'options' => array('mm3', 'cm3', 'dm3', 'm3'),
-    'reference' => &$GLOBALS['TL_LANG']['VOL'],
-    'inputType' => 'timePeriod',
-    'attributes' => array('legend' => 'dimension_legend', 'singular' => true, 'type' => 'RAD\\Fulfillment\\Model\\Attribute\\Volume'),
-);
-
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_export'] = array(
     'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_export'],
     'exclude' => true,

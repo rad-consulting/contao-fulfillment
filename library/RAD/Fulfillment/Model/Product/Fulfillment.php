@@ -10,13 +10,10 @@ namespace RAD\Fulfillment\Model\Product;
 use Contao\Database;
 use Contao\Model\Collection;
 use Exception;
-use Haste\Units\Mass;
 use Isotope\Model\Product\Standard;
 use Isotope\Model\ProductType;
 use RAD\Log\Model\Log;
-use RAD\Fulfillment\Unit\Dimension;
 use RAD\Fulfillment\Unit\EAN;
-use RAD\Fulfillment\Unit\Volume;
 
 /**
  * Class Fulfillment
@@ -155,78 +152,6 @@ class Fulfillment extends Standard
         $this->arrData['rad_updated'] = $updated ? time() : 0;
 
         return $this;
-    }
-
-    /**
-     * @return Dimension\Dimension
-     */
-    public function getHeight()
-    {
-        if (!isset($this->arrData['rad_height'])) {
-            return new Dimension\Dimension(0, Dimension\Unit::CENTIMETER);
-        }
-
-        return Dimension\Dimension::createFromTimePeriod($this->arrData['rad_height']);
-    }
-
-    /**
-     * @return Dimension\Dimension
-     */
-    public function getLength()
-    {
-        if (!isset($this->arrData['rad_length'])) {
-            return new Dimension\Dimension(0, Dimension\Unit::CENTIMETER);
-        }
-
-        return Dimension\Dimension::createFromTimePeriod($this->arrData['rad_length']);
-    }
-
-    /**
-     * @return Dimension\Dimension
-     */
-    public function getWidth()
-    {
-        if (!isset($this->arrData['rad_width'])) {
-            return new Dimension\Dimension(0, Dimension\Unit::CENTIMETER);
-        }
-
-        return Dimension\Dimension::createFromTimePeriod($this->arrData['rad_width']);
-    }
-
-    /**
-     * @return \Haste\Units\Mass\Weight
-     */
-    public function getWeightGross()
-    {
-        if (!isset($this->arrData['shipping_weight'])) {
-            return new Mass\Weight(0, Mass\Unit::KILOGRAM);
-        }
-
-        return Mass\Weight::createFromTimePeriod($this->arrData['shipping_weight']);
-    }
-
-    /**
-     * @return \Haste\Units\Mass\Weight
-     */
-    public function getWeightNet()
-    {
-        if (!isset($this->arrData['rad_weight'])) {
-            return new Mass\Weight(0, Mass\Unit::KILOGRAM);
-        }
-
-        return Mass\Weight::createFromTimePeriod($this->arrData['rad_weight']);
-    }
-
-    /**
-     * @return Volume\Volume
-     */
-    public function getVolume()
-    {
-        if (!isset($this->arrData['rad_volume'])) {
-            return new Volume\Volume(0, Volume\Unit::CUBICCENTIMETER);
-        }
-
-        return Volume\Volume::createFromTimePeriod($this->arrData['rad_volume']);
     }
 
     /**
