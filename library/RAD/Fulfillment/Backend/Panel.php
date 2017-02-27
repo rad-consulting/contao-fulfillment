@@ -10,10 +10,10 @@ namespace RAD\Fulfillment\Backend;
 
 use Contao\Backend;
 use Contao\DataContainer;
-use Isotope\Model\Product;
 use Isotope\Model\ProductType;
 use MultiColumnWizard;
 use RAD\Fulfillment\Model\Fulfillment;
+use RAD\Fulfillment\Model\Product\Fulfillment as Product;
 
 /**
  * Class Panel
@@ -41,6 +41,25 @@ class Panel extends Backend
 
         $db = $this->Database;
         $type = $dc->activeRecord->producttype;
+        $options = array();
+
+        if ($type) {
+            $collection = Product::findByType($type, true);
+        }
+        else {
+            $collection = Product::findAll();
+        }
+
+        if ($collection) {
+            foreach ($collection as $product) {
+                if ($product instanceof Product) {
+                    $options[$product->getId()] = $product->getName();
+                }
+            }
+        }
+
+        return $options;
+
         $options = array();
 
         if ($type) {

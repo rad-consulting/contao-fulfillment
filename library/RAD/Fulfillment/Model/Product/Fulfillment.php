@@ -35,10 +35,11 @@ class Fulfillment extends Standard
 {
     /**
      * @param string $type
+     * @param bool   $variants
      * @param array  $options
      * @return Collection
      */
-    public static function findByType($type, array $options = array())
+    public static function findByType($type, $variants = false, array $options = array())
     {
         $db = Database::getInstance();
         $types = $db->prepare('SELECT GROUP_CONCAT(id) AS ids FROM ' . ProductType::getTable() . ' WHERE `class` = ?')->execute($type);
@@ -47,7 +48,20 @@ class Fulfillment extends Standard
         $models = array();
 
         while ($result->next()) {
-            $models[] = static::findByPk($result->id);
+            $product = static::findByPk($result->id);
+
+            if ($variants && $product->hasVariants()) {
+                $variants = static::findMultipleByIds($product->getVariantIds());
+
+                if ($variants) {
+                    foreach ($variants as $variant) {
+                        $models[] = $variant;
+                    }
+                }
+            }
+            else {
+                $models[] = $product;
+            }
         }
 
         return new Collection($models, static::getTable());
