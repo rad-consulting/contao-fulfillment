@@ -39,20 +39,6 @@ class Listing
      * @param array         $args
      * @return array
      */
-    public function listMasterData(array &$row, $label, DataContainer $dc, array &$args)
-    {
-        $args[1] = date('Y-m-d H:i:s', $row['tstamp']);
-
-        return $args;
-    }
-
-    /**
-     * @param array         $row
-     * @param string        $label
-     * @param DataContainer $dc
-     * @param array         $args
-     * @return array
-     */
     public function listSupplierOrder(array &$row, $label, DataContainer $dc, array &$args)
     {
         $args[1] = date('Y-m-d H:i:s', $row['tstamp']);

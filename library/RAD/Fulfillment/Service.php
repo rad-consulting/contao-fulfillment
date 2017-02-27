@@ -14,7 +14,7 @@ use RAD\Event\Model\Event;
 use Isotope\Model\ProductCollection\Order;
 use RAD\Event\EventSubscriberInterface as EventSubscriber;
 use RAD\Fulfillment\Model\Fulfillment;
-use RAD\Fulfillment\Model\Product\Fulfillment as FulfillmentProduct;
+use RAD\Fulfillment\Model\Product\Fulfillment as Product;
 
 /**
  * Class Service
@@ -52,9 +52,9 @@ class Service implements EventSubscriber
 
         if ($order instanceof Order) {
             foreach ($order->getItems() as $item) {
-                $product = FulfillmentProduct::findByPk($item->product_id);
+                $product = Product::findByPk($item->product_id);
 
-                if ($product instanceof FulfillmentProduct) {
+                if ($product instanceof Product) {
                     $product->setStock($product->getStock() - $item->quantity);
                     $product->save();
                 }

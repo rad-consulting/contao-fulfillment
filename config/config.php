@@ -9,7 +9,6 @@
 // Models
 \Isotope\Model\Shipping::registerModelType('swisspost', 'RAD\\Fulfillment\\Model\\Shipping\\Swisspost');
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\Fulfillment::getTable()] = 'RAD\\Fulfillment\\Model\\Fulfillment';
-$GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\MasterData::getTable()] = 'RAD\\Fulfillment\\Model\\MasterData';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\SupplierOrder::getTable()] = 'RAD\\Fulfillment\\Model\\SupplierOrder';
 
 $GLOBALS['ISO_HOOKS']['postCheckout'][] = array('RAD\\Fulfillment\\Service', 'onPostCheckout');
@@ -19,10 +18,6 @@ $GLOBALS['BE_MOD']['isotope']['iso_products']['tables'][] = 'tl_rad_log';
 if (!is_array($GLOBALS['BE_MOD']['fulfillment'])) {
     $index = array_search('isotope', array_keys($GLOBALS['BE_MOD']));
     array_insert($GLOBALS['BE_MOD'], $index + 1, array('fulfillment' => array(
-        'masterdata' => array(
-            'tables' => array('tl_rad_master_data', 'tl_rad_log'),
-            'icon' => 'system/themes/flexible/images/about.gif',
-        ),
         'fulfillments' => array(
             'tables' => array('tl_rad_fulfillment', 'tl_rad_log'),
             'icon' => 'system/themes/flexible/images/about.gif',
@@ -41,11 +36,6 @@ $GLOBALS['RAD_LOG_ENTITIES']['fulfillments'] = array(
 $GLOBALS['RAD_LOG_ENTITIES']['supplierorders'] = array(
     'ptable' => 'tl_rad_supplier_order',
     'headerFields' => array('id', 'name', 'tstamp'),
-);
-
-$GLOBALS['RAD_LOG_ENTITIES']['masterdata'] = array(
-    'ptable' => 'tl_rad_master_data',
-    'headerFields' => array('id', 'producttype', 'tstamp'),
 );
 
 $GLOBALS['RAD_LOG_ENTITIES']['iso_products'] = array(
