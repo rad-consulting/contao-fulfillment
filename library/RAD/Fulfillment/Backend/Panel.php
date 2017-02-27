@@ -58,6 +58,8 @@ class Panel extends Backend
             }
         }
 
+        asort($options);
+
         return $options;
 
         $options = array();
