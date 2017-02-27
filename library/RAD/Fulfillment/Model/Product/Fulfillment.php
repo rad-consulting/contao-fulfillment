@@ -45,9 +45,15 @@ class Fulfillment extends Standard
     {
         $db = Database::getInstance();
         $types = $db->prepare('SELECT GROUP_CONCAT(id) AS ids FROM ' . ProductType::getTable() . ' WHERE `class` = ?')->execute($type);
-        $result = $db->prepare(' SELECT * FROM ' . static::getTable() . ' WHERE `pid` = 0 AND `type` IN (' . $types->ids . ') ORDER BY `name` ASC')->execute();
+        $result = $db->prepare(' SELECT id FROM ' . static::getTable() . ' WHERE `pid` = 0 AND `type` IN (' . $types->ids . ') ORDER BY `name` ASC')
+                     ->execute();
+        $models = array();
 
-        return Collection::createFromDbResult($result, static::getTable());
+        while ($result->next()) {
+            $models[] = static::findByPk($result->id);
+        }
+
+        return new Collection($models, static::getTable());
     }
 
     /**
