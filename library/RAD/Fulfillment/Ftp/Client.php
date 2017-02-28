@@ -53,9 +53,8 @@ class Client
             throw new RuntimeException("Failed to connect to '{$host}:{$port}'");
         }
 
-        System::log('connected to ' . $host . ':' . $port, __METHOD__, TL_CRON);
-
         $this->stream = $stream;
+        $this->connected = true;
 
         return $this;
     }
@@ -119,7 +118,6 @@ class Client
         if (!ftp_login($this->stream, $username, $password)) {
             throw new RuntimeException('Failed to login with username/password');
         }
-        System::log('logged in with ' . $username . ':' . $password, __METHOD__, TL_CRON);
 
         $this->loggedin = true;
 
@@ -153,7 +151,6 @@ class Client
     {
         if ($this->isConnected()) {
             ftp_pasv($this->stream, $passive);
-            System::log('set passive', __METHOD__, TL_CRON);
         }
 
         return $this;
