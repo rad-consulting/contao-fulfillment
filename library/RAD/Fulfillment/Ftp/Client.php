@@ -53,6 +53,8 @@ class Client
             throw new RuntimeException("Failed to connect to '{$host}:{$port}'");
         }
 
+        System::log('connected to ' . $host . ':' . $port, __METHOD__, TL_CRON);
+
         $this->stream = $stream;
 
         return $this;
