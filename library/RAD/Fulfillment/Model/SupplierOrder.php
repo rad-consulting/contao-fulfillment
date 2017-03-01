@@ -15,6 +15,7 @@ use RAD\Log\Model\Log;
  * @property int    $export
  * @property int    $exported
  * @property string $positions
+ * @property string $reference
  */
 class SupplierOrder extends AbstractModel
 {
@@ -60,6 +61,31 @@ class SupplierOrder extends AbstractModel
         }
 
         $this->exported = (int)$exported;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string      $reference
+     * @param string|null $message
+     * @param string|null $data
+     * @return $this
+     */
+    public function setReference($reference, $message = null, $data = null)
+    {
+        if ($message) {
+            $this->log($message, Log::INFO, $data);
+        }
+
+        $this->reference = $reference;
 
         return $this;
     }

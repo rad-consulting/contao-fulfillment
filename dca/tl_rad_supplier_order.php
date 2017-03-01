@@ -26,7 +26,7 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['list'] = array(
         'flag' => 12,
     ),
     'label' => array(
-        'fields' => array('id', 'tstamp', 'name'),
+        'fields' => array('id', 'tstamp', 'name', 'reference'),
         'showColumns' => true,
         'label_callback' => array('RAD\\Fulfillment\\Backend\\Listing', 'listSupplierOrder'),
     ),
@@ -66,7 +66,7 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['list'] = array(
 
 // Palettes
 $GLOBALS['TL_DCA']['tl_rad_supplier_order']['palettes'] = array(
-    'default' => '{order_legend},name,producttype;{position_legend},positions;{export_legend},export,exported;',
+    'default' => '{order_legend},name,producttype;{position_legend},positions;{export_legend},export,exported,reference;',
 );
 
 // Fields
@@ -128,5 +128,10 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['fields'] = array(
         'eval' => array('tl_class' => 'w50'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_supplier_order']['exported'],
         'inputType' => 'checkbox',
+    ),
+    'reference' => array(
+        'sql' => "varchar(255) NOT NULL default ''",
+        'label' => &$GLOBALS['TL_LANG']['tl_rad_supplier_order']['reference'],
+        'inputType' => 'text',
     ),
 );

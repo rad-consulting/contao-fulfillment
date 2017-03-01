@@ -7,7 +7,6 @@
  */
 namespace RAD\Fulfillment\Ftp;
 
-use Contao\System;
 use RuntimeException;
 
 /**

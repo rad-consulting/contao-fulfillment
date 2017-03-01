@@ -25,3 +25,4 @@ $GLOBALS['TL_LANG']['tl_rad_supplier_order']['product'] = array('Produkt');
 $GLOBALS['TL_LANG']['tl_rad_supplier_order']['quantity'] = array('Anzahl');
 $GLOBALS['TL_LANG']['tl_rad_supplier_order']['export'] = array('Exportieren');
 $GLOBALS['TL_LANG']['tl_rad_supplier_order']['exported'] = array('Bereits exportiert');
+$GLOBALS['TL_LANG']['tl_rad_supplier_order']['reference'] = array('Referenz');
