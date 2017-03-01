@@ -8,6 +8,7 @@
 namespace RAD\Fulfillment\Model\Shipping;
 
 use Contao\Environment;
+use Contao\System;
 use Isotope\Model\Shipping\Flat;
 use RAD\Fulfillment\Model\Fulfillment;
 
@@ -29,6 +30,8 @@ class Swisspost extends Flat
      */
     public function backendInterface($orderId)
     {
+        System::loadLanguageFile('default');
+
         $collection = Fulfillment::findByOrder($orderId);
         $tracking = 'n/a';
         $trackings = array();
