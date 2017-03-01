@@ -60,6 +60,7 @@ class SupplierOrder extends AbstractModel
             $this->log($message, Log::INFO, $data);
         }
 
+        $this->export = 0;
         $this->exported = (int)$exported;
 
         return $this;
