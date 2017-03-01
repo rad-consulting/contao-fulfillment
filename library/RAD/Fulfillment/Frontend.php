@@ -5,7 +5,7 @@
  * @author     Olivier Dahinden <o.dahinden@rad-consulting.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
-namespace RAD\Fulfillment\Frontend;
+namespace RAD\Fulfillment;
 
 use Contao\Frontend as ContaoFrontend;
 use Isotope\Model\Product;
