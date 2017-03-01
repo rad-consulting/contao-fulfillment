@@ -16,7 +16,7 @@ $GLOBALS['TL_LANG']['tl_iso_product']['export_legend'] = 'Export';
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_ean'] = array('EAN', 'European Article Number');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_sku'] = array('SKU', 'SKU des Produkts beim Lieferanten.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_stock'] = array('Lagerbestand', 'Lagerbestand des Produkts beim Lieferanten.');
-$GLOBALS['TL_LANG']['tl_iso_product']['rad_update'] = array('Synchronisation', 'Letzte Synchronisation des Produktes mit dem Lieferanten.');
+$GLOBALS['TL_LANG']['tl_iso_product']['rad_updated'] = array('Synchronisation', 'Letzte Synchronisation des Produktes mit dem Lieferanten.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_export'] = array('Exportieren', 'Produkt für das Exportieren an diverse Schnittstellen freigeben.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_exported'] = array('Bereits exportiert', 'Markiert ob das Produkt bereits exportiert wurde.');
 

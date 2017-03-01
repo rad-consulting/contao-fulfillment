@@ -46,8 +46,8 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_stock'] = array(
     'sql' => "int(10) NOT NULL default '0'",
 );
 
-$GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_update'] = array(
-    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_update'],
+$GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_updated'] = array(
+    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_updated'],
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('rgxp' => 'datim', 'readonly' => true, 'tl_class' => 'w50'),
