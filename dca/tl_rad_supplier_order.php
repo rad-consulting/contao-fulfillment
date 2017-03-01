@@ -66,7 +66,7 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['list'] = array(
 
 // Palettes
 $GLOBALS['TL_DCA']['tl_rad_supplier_order']['palettes'] = array(
-    'default' => '{order_legend},name,producttype;{position_legend},positions;{export_legend},export,exported,reference;',
+    'default' => '{order_legend},name,producttype,reference;{position_legend},positions;{export_legend},export,exported;',
 );
 
 // Fields
