@@ -12,7 +12,7 @@ $GLOBALS['TL_DCA']['tl_iso_product']['list']['operations']['log'] = array(
     'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['log'],
     'href' => 'table=tl_rad_log',
     'icon' => 'news.gif',
-    'button_callback' => array('RAD\\Log\\Backend\\Button', 'forLog'),
+    'button_callback' => array('RAD\\Fulfillment\\Backend\\Button', 'forLog'),
 );
 
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_ean'] = array(
