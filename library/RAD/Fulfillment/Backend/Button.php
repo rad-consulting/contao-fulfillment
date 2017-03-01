@@ -29,7 +29,7 @@ class Button extends LogButton
         $product = Product::findByPk($row['id']);
 
         if ($product instanceof Product\Standard) {
-            if (in_array('rad_export', $product->getType()->getAttributes())) {
+            if (in_array('rad_export', $product->isVariant() ? $product->getType()->getVariantAttributes() : $product->getType()->getAttributes())) {
                 return parent::forLog($row, $href, $label, $title, $icon, $attributes);
             }
         }
