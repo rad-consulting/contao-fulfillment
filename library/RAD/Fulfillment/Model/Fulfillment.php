@@ -7,7 +7,8 @@
  */
 namespace RAD\Fulfillment\Model;
 
-use Isotope\Model\ProductCollection\Order;
+use InvalidArgumentException;
+use Isotope\Model\ProductCollection\Order as ShopOrder;
 use RAD\Log\Model\Log;
 
 /**
@@ -40,11 +41,11 @@ class Fulfillment extends AbstractModel
     public static $strTable = 'tl_rad_fulfillment';
 
     /**
-     * @param Order  $order
-     * @param string $type
+     * @param ShopOrder $order
+     * @param string    $type
      * @return static
      */
-    public static function factory(Order $order, $type = 'fulfillment')
+    public static function factory(ShopOrder $order, $type = 'fulfillment')
     {
         $instance = new static();
         $instance->pid = $order->id;
@@ -54,6 +55,23 @@ class Fulfillment extends AbstractModel
         $instance->type = $type;
 
         return $instance;
+    }
+
+    /**
+     * @param ShopOrder|int $order
+     * @return \Model\Collection|null|static
+     */
+    public static function findByOrder($order)
+    {
+        if ($order instanceof ShopOrder) {
+            $order = $order->id;
+        }
+
+        if (!ctype_digit($order)) {
+            throw new InvalidArgumentException('Argument must be integer or instance of Isotope\Model\ProductCollection\Order');
+        }
+
+        return static::findBy('pid', $order);
     }
 
     /**
@@ -140,11 +158,11 @@ class Fulfillment extends AbstractModel
     }
 
     /**
-     * @return Order
+     * @return ShopOrder
      */
     public function getOrder()
     {
-        return Order::findByPk($this->pid);
+        return ShopOrder::findByPk($this->pid);
     }
 
     /**
