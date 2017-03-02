@@ -176,7 +176,11 @@ class Client
     public function isFile($remote)
     {
         if ($this->isLoggedIn()) {
-            return (bool)ftp_size($this->stream, $remote);
+            foreach (ftp_nlist($this->stream, dirname($remote)) as $file) {
+                if (basename($remote) == $file) {
+                    return true;
+                }
+            }
         }
 
         return false;
