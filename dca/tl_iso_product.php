@@ -56,7 +56,7 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_updated'] = array(
 );
 
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_export'] = array(
-    'eval' => array('includeBlankOption' => true),
+    'eval' => array('includeBlankOption' => true, 'tl_class' => 'w50'),
     'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_export'],
     'exclude' => true,
     'options' => array('I', 'U', 'D'),
