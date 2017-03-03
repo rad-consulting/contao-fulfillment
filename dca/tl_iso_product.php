@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_unit'] = array(
     'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_unit'],
     'exclude' => true,
     'default' => 'PCE',
-    'options' => array('PCE', 'PF', 'PR', 'CR', 'CS', 'CT', 'BO', 'BG'),
+    'options' => array('PCE', 'PA', 'PK', 'PF', 'PR', 'CR', 'CS', 'CT', 'BO', 'BG'),
     'reference' => &$GLOBALS['TL_LANG']['UNIT'],
     'inputType' => 'select',
     'eval' => array('maxlength' => 32, 'rgxp' => 'alnum', 'tl_class' => 'w50'),
