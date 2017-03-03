@@ -19,14 +19,16 @@ $GLOBALS['TL_LANG']['tl_iso_product']['rad_stock'] = array('Lagerbestand', 'Lage
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_updated'] = array('Synchronisation', 'Letzte Synchronisation des Produktes mit dem Lieferanten.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_export'] = array('Exportieren', 'Produkt für das Exportieren an diverse Schnittstellen freigeben.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_exported'] = array('Bereits exportiert', 'Markiert ob das Produkt bereits exportiert wurde.');
+$GLOBALS['TL_LANG']['tl_iso_product']['rad_unit'] = array('Verkaufseinheit', 'Wählen Sie die richtige Verkaufseinheit.');
 
 // References
-$GLOBALS['TL_LANG']['DIM']['km'] = 'Kilometer (km)';
-$GLOBALS['TL_LANG']['DIM']['m'] = 'Meter (m)';
-$GLOBALS['TL_LANG']['DIM']['dm'] = 'Dezimeter (dm)';
-$GLOBALS['TL_LANG']['DIM']['cm'] = 'Zentimeter (cm)';
-$GLOBALS['TL_LANG']['DIM']['mm'] = 'Millimeter (mm)';
-$GLOBALS['TL_LANG']['VOL']['m3'] = 'Kubikmeter (m3)';
-$GLOBALS['TL_LANG']['VOL']['dm3'] = 'Kubikdezimeter (dm3)';
-$GLOBALS['TL_LANG']['VOL']['cm3'] = 'Kubikzentimeter (cm3)';
-$GLOBALS['TL_LANG']['VOL']['mm3'] = 'Kubikmillimeter (mm3)';
+$GLOBALS['TL_LANG']['UNIT'] = array(
+    'PCE' => 'Stück',
+    'PF' => 'Palette',
+    'PR' => 'Paar',
+    'CR' => 'Kiste',
+    'CS' => 'Kasten',
+    'CT' => 'Karton',
+    'BO' => 'Flasche',
+    'BG' => 'Tüte',
+);
