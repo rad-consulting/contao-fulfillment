@@ -87,7 +87,7 @@ class Panel extends Backend
     {
         $options = array();
 
-        $collection = OrderStatus::findAll();
+        $collection = OrderStatus::findAll(array('order' => 'sorting ASC'));
 
         if ($collection) {
             foreach ($collection as $option) {
@@ -96,8 +96,6 @@ class Panel extends Backend
                 }
             }
         }
-
-        asort($options);
 
         return $options;
     }

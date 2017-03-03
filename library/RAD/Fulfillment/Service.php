@@ -103,8 +103,11 @@ class Service implements EventSubscriber
                 }
             }
 
-            $status = OrderStatus::findBy('name', 'Complete');
-            $order->updateOrderStatus($status->id);
+            $status = $this->getConfig()->get('orderstatus');
+
+            if (0 < $status) {
+                $order->updateOrderStatus($status->id);
+            }
         }
     }
 }
