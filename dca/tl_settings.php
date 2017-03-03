@@ -8,7 +8,7 @@
  */
 
 // Palettes
-$GLOBALS['TL_DCA']['tl_settings']['palettes']['default'] .= ';{rad_fufillment_legend},rad_fulfillment_orderstatus,rad_fulfillment_active;';
+$GLOBALS['TL_DCA']['tl_settings']['palettes']['default'] .= ';{rad_fulfillment_legend},rad_fulfillment_orderstatus,rad_fulfillment_active;';
 
 // Fields
 $GLOBALS['TL_DCA']['tl_settings']['fields']['rad_fulfillment_active'] = array(
