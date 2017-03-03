@@ -16,7 +16,8 @@ $GLOBALS['TL_LANG']['tl_rad_fulfillment']['pid'] = array('Bestellung');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['tstamp'] = array('Erstellungsdatum');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['producttype'] = array('Produkt-Typ');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['status'] = array('Status');
-$GLOBALS['TL_LANG']['tl_rad_fulfillment']['reference'] = array('Referenz', 'Referenz der Kundenbestellung beim Distributeur.');
+$GLOBALS['TL_LANG']['tl_rad_fulfillment']['reference'] = array('Referenz', 'Referenz der Kundenbestellung beim Distributor.');
+$GLOBALS['TL_LANG']['tl_rad_fulfillment']['delivery'] = array('Auslieferung', 'Referenz der Auslieferung beim Distributor.');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['tracking'] = array('Tracking-Nummern', 'Informationen zur Nachverfolgung der Sendung.');
 
 // Reference

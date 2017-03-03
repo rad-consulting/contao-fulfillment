@@ -21,6 +21,7 @@ use RAD\Log\Model\Log;
  * @property string $type
  * @property string $ptable
  * @property string $reference
+ * @property string $delivery
  * @property string $tracking
  */
 class Fulfillment extends AbstractModel
@@ -101,14 +102,19 @@ class Fulfillment extends AbstractModel
 
     /**
      * @param string|null $reference
+     * @param string|null $delivery
      * @param string|null $message
      * @param string|null $data
      * @return $this
      */
-    public function setConfirmed($reference = null, $message = null, $data = null)
+    public function setConfirmed($reference = null, $delivery = null, $message = null, $data = null)
     {
         if ($reference) {
             $this->reference = $reference;
+        }
+
+        if ($delivery) {
+            $this->delivery = $delivery;
         }
 
         if ($message) {
