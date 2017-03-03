@@ -105,7 +105,6 @@ class Service implements EventSubscriber
             }
 
             $status = $this->getConfig()->get('orderstatus');
-            System::log($status, __METHOD__, TL_CRON);
 
             if (0 < $status) {
                 $order->updateOrderStatus($status);
