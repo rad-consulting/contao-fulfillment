@@ -17,7 +17,8 @@ $GLOBALS['TL_LANG']['tl_iso_product']['rad_ean'] = array('EAN', 'European Articl
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_sku'] = array('SKU', 'SKU des Produkts beim Lieferanten.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_stock'] = array('Lagerbestand', 'Lagerbestand des Produkts beim Lieferanten.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_updated'] = array('Synchronisation', 'Letzte Synchronisation des Produktes mit dem Lieferanten.');
-$GLOBALS['TL_LANG']['tl_iso_product']['rad_export'] = array('Exportieren', 'Produkt für das Exportieren mit Modus an diverse Schnittstellen freigeben.');
+$GLOBALS['TL_LANG']['tl_iso_product']['rad_export'] = array('Exportieren', 'Export-Modus an Schnittstellen.');
+$GLOBALS['TL_LANG']['tl_iso_product']['rad_exported'] = array('Exportiert', 'Letzter Export an Schnittstellen.');
 $GLOBALS['TL_LANG']['tl_iso_product']['rad_unit'] = array('Verkaufseinheit', 'Wählen Sie die richtige Verkaufseinheit.');
 
 // References

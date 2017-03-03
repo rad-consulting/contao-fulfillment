@@ -66,6 +66,15 @@ $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_export'] = array(
     'sql' => "char(1) NOT NULL default ''",
 );
 
+$GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_exported'] = array(
+    'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_exported'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => array('rgxp' => 'datim', 'readonly' => true, 'tl_class' => 'w50'),
+    'attributes' => array('legend' => 'fulfillment_legend', 'singular' => true),
+    'sql' => "int(10) NOT NULL default '0'",
+);
+
 $GLOBALS['TL_DCA']['tl_iso_product']['fields']['rad_unit'] = array(
     'label' => &$GLOBALS['TL_LANG']['tl_iso_product']['rad_unit'],
     'exclude' => true,
