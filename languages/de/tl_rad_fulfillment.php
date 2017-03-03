@@ -13,6 +13,7 @@ $GLOBALS['TL_LANG']['tl_rad_fulfillment']['fulfillment_legend'] = 'Kundenbestell
 // Fields
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['id'] = array('ID');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['pid'] = array('Bestellung');
+$GLOBALS['TL_LANG']['tl_rad_fulfillment']['tstamp'] = array('Erstellungs-Datum');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['producttype'] = array('Produkt-Typ');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['status'] = array('Status');
 $GLOBALS['TL_LANG']['tl_rad_fulfillment']['reference'] = array('Referenz', 'Referenz der Kundenbestellung beim Distributeur.');
