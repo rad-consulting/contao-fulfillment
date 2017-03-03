@@ -23,14 +23,14 @@ $GLOBALS['TL_LANG']['tl_iso_product']['rad_unit'] = array('Verkaufseinheit', 'W�
 
 // References
 $GLOBALS['TL_LANG']['UNIT'] = array(
-    'PCE' => 'Stück',
-    'PA' => 'Paket',
-    'PK' => 'Packen',
-    'PF' => 'Palette',
-    'PR' => 'Paar',
-    'CR' => 'Kiste',
-    'CS' => 'Kasten',
-    'CT' => 'Karton',
-    'BO' => 'Flasche',
-    'BG' => 'Tüte',
+    'PCE' => 'Stück (PCE)',
+    'PA' => 'Paket (PA)',
+    'PK' => 'Packen (PK)',
+    'PF' => 'Palette (PF)',
+    'PR' => 'Paar (PR)',
+    'CR' => 'Kiste (CR)',
+    'CS' => 'Kasten (CS)',
+    'CT' => 'Karton (CT)',
+    'BO' => 'Flasche (BO)',
+    'BG' => 'Tüte (BG)',
 );
