@@ -10,9 +10,9 @@ namespace RAD\Fulfillment\Model\Product;
 use Contao\Database;
 use Contao\Model\Collection;
 use Exception;
-use Isotope\Model\Attribute\Price;
-use Isotope\Model\Attribute\PriceTiers;
+use Isotope\Model\BasePrice;
 use Isotope\Model\Product\Standard;
+use Isotope\Model\ProductPrice;
 use Isotope\Model\ProductType;
 use RAD\Log\Model\Log;
 use RAD\Fulfillment\Unit\EAN;
@@ -163,18 +163,6 @@ class Fulfillment extends Standard
         }
 
         return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getPriceRaw()
-    {
-        $db = Database::getInstance();
-        $stmt = $db->prepare('SELECT pt.price AS price FROM ' . PriceTiers::getTable() . ' AS pt, ' . Price::getTable() . ' AS p WHERE pt.pid = p.id AND p.pid = ? LIMIT 1');
-        $result = $stmt->execute($this->getId());
-
-        return $result->price;
     }
 
     /**
