@@ -10,6 +10,7 @@ namespace RAD\Fulfillment\Backend;
 
 use Contao\Backend;
 use Contao\DataContainer;
+use Isotope\Model\OrderStatus;
 use Isotope\Model\ProductType;
 use MultiColumnWizard;
 use RAD\Fulfillment\Model\Fulfillment;
@@ -72,6 +73,28 @@ class Panel extends Backend
 
         foreach (array_keys(Product::getModelTypes()) as $option) {
             $options[$option] = $GLOBALS['TL_LANG']['MODEL']['tl_iso_product'][$option][0];
+        }
+
+        asort($options);
+
+        return $options;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptionsForOrderStatus()
+    {
+        $options = array();
+
+        $collection = OrderStatus::findAll();
+
+        if ($collection) {
+            foreach ($collection as $option) {
+                if ($option instanceof OrderStatus) {
+                    $options[$option->id] = $option->name;
+                }
+            }
         }
 
         asort($options);

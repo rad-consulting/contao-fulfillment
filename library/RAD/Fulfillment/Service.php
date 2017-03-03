@@ -22,14 +22,35 @@ use RAD\Fulfillment\Model\Product\Fulfillment as Product;
 class Service implements EventSubscriber
 {
     /**
+     * @var Config
+     */
+    protected static $config;
+
+    /**
+     * @return Config
+     */
+    public static function getConfig()
+    {
+        if (empty(static::$config)) {
+            static::$config = new Config();
+        }
+
+        return static::$config;
+    }
+
+    /**
      * @return array
      */
     public static function getSubscribedEvents()
     {
-        return array(
-            'order.create' => 'onCreateOrder',
-            'fulfillment.complete' => 'onCompleteFulfillment',
-        );
+        if (static::getConfig()->get('active')) {
+            return array(
+                'order.create' => 'onCreateOrder',
+                'fulfillment.complete' => 'onCompleteFulfillment',
+            );
+        }
+
+        return array();
     }
 
     /**
@@ -82,7 +103,7 @@ class Service implements EventSubscriber
                 }
             }
 
-            $status = OrderStatus::findBy('name', 'Completed');
+            $status = OrderStatus::findBy('name', 'Complete');
             $order->updateOrderStatus($status->id);
         }
     }
