@@ -68,7 +68,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
 
 // Palettes
 $GLOBALS['TL_DCA']['tl_rad_fulfillment']['palettes'] = array(
-    'default' => '{type_legend},id,pid,producttype;{fulfillment_legend},status,reference,delivery,tracking',
+    'default' => '{type_legend},id,pid,producttype,status;{fulfillment_legend},status,reference,delivery,tracking',
 );
 
 // Fields
@@ -94,7 +94,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
     ),
     'producttype' => array(
         'sql' => "varchar(48) NOT NULL default 'fulfillment'",
-        'eval' => array('disabled' => true, 'tl_class' => 'clr'),
+        'eval' => array('disabled' => true, 'tl_class' => 'w50'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['producttype'],
         'inputType' => 'select',
         'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForProductType'),
@@ -124,6 +124,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
     ),
     'status' => array(
         'sql' => "int(10) unsigned NOT NULL default '1'",
+        'eval' => array('tl_class' => 'w50'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['status'],
         'reference' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['status.reference'],
         'inputType' => 'select',
