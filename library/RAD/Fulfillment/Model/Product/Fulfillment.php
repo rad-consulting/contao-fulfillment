@@ -20,7 +20,7 @@ use RAD\Fulfillment\Unit\EAN;
  *
  * @property int    $id
  * @property int    $rad_ean
- * @property int    $rad_export
+ * @property string $rad_export
  * @property int    $rad_exported
  * @property int    $rad_stock
  * @property int    $rad_updated
@@ -124,30 +124,41 @@ class Fulfillment extends Standard
      */
     public function doExport()
     {
-        return (bool)$this->rad_export;
+        return '' != $this->rad_export;
     }
 
     /**
-     * @inheritdoc
+     * @return string
      */
-    public function isExported()
+    public function getExport()
     {
-        return (bool)$this->rad_exported;
+        return $this->rad_export;
     }
 
     /**
-     * @param bool        $exported
      * @param string|null $message
      * @param string|null $data
      * @return $this
      */
-    public function setExported($exported = true, $message = null, $data = null)
+    public function setExported($message = null, $data = null)
     {
         if ($message) {
             $this->log($message, Log::INFO, $data);
         }
 
-        $this->rad_exported = (int)$exported;
+        $this->rad_exported = time();
+
+        switch ($this->rad_export) {
+            case 'I':
+                $this->rad_export = 'U';
+                break;
+
+            case 'D':
+                $this->rad_export = '';
+                break;
+
+            default:
+        }
 
         return $this;
     }
