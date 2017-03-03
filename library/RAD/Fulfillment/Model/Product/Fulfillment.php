@@ -29,6 +29,7 @@ use RAD\Fulfillment\Unit\EAN;
  * @property float  $rad_length
  * @property float  $rad_height
  * @property string $rad_sku
+ * @property string $rad_unit
  * @property string $rad_volume
  */
 class Fulfillment extends Standard
@@ -166,6 +167,14 @@ class Fulfillment extends Standard
         $this->rad_updated = $updated ? time() : 0;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUnit()
+    {
+        return $this->rad_unit;
     }
 
     /**
