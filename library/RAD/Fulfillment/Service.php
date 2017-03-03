@@ -7,6 +7,7 @@
  */
 namespace RAD\Fulfillment;
 
+use Contao\System;
 use Exception;
 use Isotope\Model\OrderStatus;
 use RAD\Event\EventDispatcher;
@@ -104,6 +105,7 @@ class Service implements EventSubscriber
             }
 
             $status = $this->getConfig()->get('orderstatus');
+            System::log($status->id, __METHOD__, TL_CRON);
 
             if (0 < $status) {
                 $order->updateOrderStatus($status->id);
