@@ -28,7 +28,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
         'flag' => 12,
     ),
     'label' => array(
-        'fields' => array('id', 'tstamp', 'pid', 'producttype', 'status', 'reference', 'tracking'),
+        'fields' => array('id', 'tstamp', 'pid', 'producttype', 'status', 'reference', 'delivery'),
         'showColumns' => true,
         'label_callback' => array('RAD\\Fulfillment\\Backend\\Listing', 'listFulfillment'),
     ),
