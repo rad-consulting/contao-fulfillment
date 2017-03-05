@@ -69,7 +69,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
 // Palettes
 $GLOBALS['TL_DCA']['tl_rad_fulfillment']['palettes'] = array(
     '__selector__' => array('type'),
-    'default' => '{type_legend},id,pid,type,status;{fulfillment_legend},reference,delivery,tracking',
+    'default' => '{type_legend},id,pid,type,status;{fulfillment_legend},reference,tracking',
 );
 
 // Fields
