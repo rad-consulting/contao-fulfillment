@@ -11,6 +11,7 @@ namespace RAD\Fulfillment\Backend;
 use Contao\Backend;
 use Contao\DataContainer;
 use Isotope\Model\OrderStatus;
+use Isotope\Model\ProductCollection\Order;
 use MultiColumnWizard;
 use NotificationCenter\Model\Message;
 use NotificationCenter\Model\Notification;
@@ -137,17 +138,15 @@ class Panel extends Backend
     public function buttonsForFulfillment(array &$buttons, DataContainer $dc)
     {
         $buffer = array();
-        $fulfillment = Fulfillment::findByPk($dc->activeRecord->id);
-        $buffer[] = var_export($fulfillment, true);
+        $order = Order::findByPk($dc->activeRecord->pid);
 
-        if ($fulfillment instanceof Fulfillment) {
-            $buffer[] = $fulfillment->id;
-
-            foreach ($fulfillment->getItems() as $item) {
-                $product = $item->getProduct();
-
-                $buffer[] = '<input type="text" readonly="readonly" value="' . $product->getName() . '">';
+        foreach ($order->getItems() as $item) {
+            if ($dc->activeRecord->type != $item->type) {
+                continue;
             }
+
+            $product = $item->getProduct();
+            $buffer[] = '<input type="text" readonly="readonly" value="' . $product->getName() . '">';
         }
 
         array_unshift($buttons, '<fieldset id="pal_position_legend" class="tl_box"><legend onclick="AjaxRequest.toggleFieldset(this,\'position_legend\',\'tl_rad_fulfillment\')">Positionen</legend><div>' . implode('', $buffer) . '</div></fieldset>');
