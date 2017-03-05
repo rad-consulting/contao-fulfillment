@@ -146,10 +146,13 @@ class Panel extends Backend
             }
 
             $product = $item->getProduct();
-            $buffer[] = '<input type="text" readonly="readonly" value="' . $product->getName() . '">';
+
+            if ($product instanceof Product) {
+                $buffer[] = '<div><input type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getSKU() . '"><input type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getEAN() . '"><input type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getName() . '"><input type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $item->quantity . '"></div>';
+            }
         }
 
-        array_unshift($buttons, '<fieldset id="pal_position_legend" class="tl_box"><legend onclick="AjaxRequest.toggleFieldset(this,\'position_legend\',\'tl_rad_fulfillment\')">Positionen</legend><div>' . implode('', $buffer) . '</div></fieldset>');
+        array_unshift($buttons, '<fieldset id="pal_position_legend" class="tl_box"><legend onclick="AjaxRequest.toggleFieldset(this,\'position_legend\',\'tl_rad_fulfillment\')">Positionen</legend>' . implode('', $buffer) . '</fieldset>');
 
         return $buttons;
     }
