@@ -9,3 +9,4 @@
 // Types
 $GLOBALS['TL_LANG']['tl_nc_notification']['type']['isotope'] = 'Shop';
 $GLOBALS['TL_LANG']['tl_nc_notification']['type']['fulfillment'] = 'Distanzhandel';
+$GLOBALS['TL_LANG']['tl_nc_notification']['type']['fulfillment']['fulfillment_status_change'] = 'Änderung Status';
