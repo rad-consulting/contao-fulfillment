@@ -7,8 +7,11 @@
  */
 namespace RAD\Fulfillment\Model;
 
-use InvalidArgumentException;
+use Exception, InvalidArgumentException;
 use Isotope\Model\ProductCollection\Order as ShopOrder;
+use Isotope\Model\ProductCollectionItem as ShopItem;
+use Isotope\Model\TypeAgent;
+use RAD\Log\LogInterface;
 use RAD\Log\Model\Log;
 
 /**
@@ -24,7 +27,7 @@ use RAD\Log\Model\Log;
  * @property string $delivery
  * @property string $tracking
  */
-class Fulfillment extends AbstractModel
+class Fulfillment extends TypeAgent implements LogInterface
 {
     /**
      * @const int
@@ -40,6 +43,11 @@ class Fulfillment extends AbstractModel
      * @var string
      */
     public static $strTable = 'tl_rad_fulfillment';
+
+    /**
+     * @var array
+     */
+    protected static $arrModelTypes;
 
     /**
      * @param ShopOrder $order
@@ -172,6 +180,14 @@ class Fulfillment extends AbstractModel
     }
 
     /**
+     * @return ShopItem[]
+     */
+    public function getItems()
+    {
+        return $this->getOrder()->getItems();
+    }
+
+    /**
      * @return string
      */
     public function getReference()
@@ -206,5 +222,23 @@ class Fulfillment extends AbstractModel
     public function getTracking()
     {
         return $this->tracking;
+    }
+
+    /**
+     * @param string|Exception $message
+     * @param int              $level
+     * @param string|null      $data
+     * @return $this
+     */
+    public function log($message, $level = Log::INFO, $data = null)
+    {
+        if ($message instanceof Exception) {
+            $level = $message->getCode();
+            $message = $message->getMessage();
+        }
+
+        Log::factory($this, $message, $level, $data)->save();
+
+        return $this;
     }
 }

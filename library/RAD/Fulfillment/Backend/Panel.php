@@ -89,7 +89,7 @@ class Panel extends Backend
      * @param DataContainer $dc
      * @return array
      */
-    public function getOptionsForProductType(DataContainer $dc)
+    public function getOptionsForType(DataContainer $dc)
     {
         $options = array();
 

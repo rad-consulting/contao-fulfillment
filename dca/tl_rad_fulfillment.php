@@ -14,7 +14,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['config'] = array(
     'sql' => array(
         'keys' => array(
             'id' => 'primary',
-            'pid,ptable,producttype' => 'unique',
+            'pid,ptable,type' => 'unique',
         ),
     ),
 );
@@ -28,7 +28,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
         'flag' => 12,
     ),
     'label' => array(
-        'fields' => array('id', 'tstamp', 'pid', 'producttype', 'status', 'reference', 'delivery'),
+        'fields' => array('id', 'tstamp', 'pid', 'type', 'status', 'reference', 'delivery'),
         'showColumns' => true,
         'label_callback' => array('RAD\\Fulfillment\\Backend\\Listing', 'listFulfillment'),
     ),
@@ -68,7 +68,8 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
 
 // Palettes
 $GLOBALS['TL_DCA']['tl_rad_fulfillment']['palettes'] = array(
-    'default' => '{type_legend},id,pid,producttype,status;{fulfillment_legend},reference,delivery,tracking',
+    '__selector__' => array('type'),
+    'default' => '{type_legend},id,pid,type,status;{fulfillment_legend},reference,delivery,tracking',
 );
 
 // Fields
@@ -92,13 +93,13 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['tstamp'],
     ),
-    'producttype' => array(
+    'type' => array(
         'sql' => "varchar(48) NOT NULL default 'fulfillment'",
         'eval' => array('disabled' => true, 'tl_class' => 'w50'),
-        'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['producttype'],
+        'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['type'],
         'filter' => true,
         'inputType' => 'select',
-        'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForProductType'),
+        'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForType'),
     ),
     'items' => array(
         'sql' => "varchar(48) NOT NULL default ''",
