@@ -31,7 +31,7 @@ $GLOBALS['ISO_HOOKS']['generateProduct'][] = array('RAD\\Fulfillment\\Frontend',
 $GLOBALS['ISO_HOOKS']['postCheckout'][] = array('RAD\\Fulfillment\\Service', 'onPostCheckout');
 
 // Notifications
-$GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['fulfillment']['fulfillment_status_change']['recipients'] = array('recipient_email', 'billing_address_email', 'shipping_address_email');
+$GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['fulfillment']['fulfillment_status_change']['recipients'] = array('admin_email');
 
 // Modifications
 $GLOBALS['BE_MOD']['isotope']['iso_products']['tables'][] = 'tl_rad_log';
