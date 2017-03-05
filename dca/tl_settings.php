@@ -8,7 +8,7 @@
  */
 
 // Palettes
-$GLOBALS['TL_DCA']['tl_settings']['palettes']['default'] .= ';{rad_fulfillment_legend},rad_fulfillment_orderstatus,rad_fulfillment_active;';
+$GLOBALS['TL_DCA']['tl_settings']['palettes']['default'] .= ';{rad_fulfillment_legend},rad_fulfillment_orderstatus,rad_fulfillment_notification,rad_fulfillment_active;';
 
 // Fields
 $GLOBALS['TL_DCA']['tl_settings']['fields']['rad_fulfillment_active'] = array(
@@ -22,4 +22,11 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['rad_fulfillment_orderstatus'] = arr
     'label' => &$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_orderstatus'],
     'inputType' => 'select',
     'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForOrderStatus'),
+);
+
+$GLOBALS['TL_DCA']['tl_settings']['fields']['rad_fulfillment_notification'] = array(
+    'eval' => array('tl_class' => 'w50', 'includeBlankOption' => true),
+    'label' => &$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_notification'],
+    'inputType' => 'select',
+    'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForNotification'),
 );

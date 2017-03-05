@@ -13,6 +13,8 @@ use Contao\DataContainer;
 use Isotope\Model\OrderStatus;
 use Isotope\Model\ProductType;
 use MultiColumnWizard;
+use NotificationCenter\Model\Message;
+use NotificationCenter\Model\Notification;
 use RAD\Fulfillment\Model\Fulfillment;
 use RAD\Fulfillment\Model\Product\Fulfillment as Product;
 
@@ -22,12 +24,32 @@ use RAD\Fulfillment\Model\Product\Fulfillment as Product;
 class Panel extends Backend
 {
     /**
-     * @param DataContainer $dc
      * @return array
      */
-    public function getOptionsForStatus(DataContainer $dc)
+    public function getOptionsForNotification()
     {
-        return Fulfillment::getStatus();
+        $options = array();
+        $collection = Notification::findBy('type', 'fulfillment_status_change');
+
+        if ($collection) {
+            foreach ($collection as $item) {
+                if ($item instanceof Notification) {
+                    $messages = Message::findBy('pid', $item->id);
+
+                    if ($messages) {
+                        foreach ($messages as $message) {
+                            if ($message instanceof Message) {
+                                $options[$message->id] = $message->title;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        asort($options);
+
+        return $options;
     }
 
     /**
@@ -98,5 +120,14 @@ class Panel extends Backend
         }
 
         return $options;
+    }
+
+    /**
+     * @param DataContainer $dc
+     * @return array
+     */
+    public function getOptionsForStatus(DataContainer $dc)
+    {
+        return Fulfillment::getStatus();
     }
 }

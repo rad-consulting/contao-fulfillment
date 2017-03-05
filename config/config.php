@@ -32,7 +32,7 @@ $GLOBALS['ISO_HOOKS']['postCheckout'][] = array('RAD\\Fulfillment\\Service', 'on
 
 // Notifications
 $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['fulfillment']['fulfillment_status_change']['recipients'] = array('admin_email');
-$GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['fulfillment']['fulfillment_status_change']['email_text'] = array('order_id', 'fulfillment_*', 'order_items', 'shipping_address', 'shipping_address_*');
+$GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['fulfillment']['fulfillment_status_change']['email_text'] = array('order_id', 'fulfillment_id', 'fulfillment_*', 'order_items', 'shipping_address', 'shipping_address_*');
 
 // Modifications
 $GLOBALS['BE_MOD']['isotope']['iso_products']['tables'][] = 'tl_rad_log';
