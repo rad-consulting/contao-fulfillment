@@ -139,6 +139,7 @@ class Panel extends Backend
     {
         $buffer = array();
         $fulfillment = Fulfillment::findByPk($dc->activeRecord->id);
+        $buffer[] = $dc->activeRecord->id;
 
         if ($fulfillment instanceof Fulfillment) {
             $buffer[] = $fulfillment->id;
