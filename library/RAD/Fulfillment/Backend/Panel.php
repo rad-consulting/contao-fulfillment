@@ -137,7 +137,7 @@ class Panel extends Backend
      */
     public function buttonsForFulfillment(array &$buttons)
     {
-        array_unshift($buttons, '<fieldset id="pal_position_legend" class="tl_box"><legend>Positionen</legend><div><h3>Positionen</h3></div></fieldset>');
+        array_unshift($buttons, '<fieldset id="pal_position_legend" class="tl_box"><legend onclick="AjaxRequest.toggleFieldset(this,\'fulfillment_legend\',\'tl_rad_fulfillment\')">Positionen</legend><div>hallo</div></fieldset>');
 
         return $buttons;
     }
