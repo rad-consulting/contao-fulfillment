@@ -148,7 +148,7 @@ class Panel extends Backend
             $product = $item->getProduct();
 
             if ($product instanceof Product) {
-                $buffer[] = '<div><input style="margin-right:12px;width:100px" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getSKU() . '"><input style="margin-right:12px;width:100px" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getEAN()->getValue() . '"><input style="margin-right:12px;width:350px" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getName() . '"><input style="width:50px" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $item->quantity . '"></div>';
+                $buffer[] = '<div class="clr"><input style="margin-right:12px;width:100px" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getSKU() . '"><input style="margin-right:12px;width:100px" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getEAN()->getValue() . '"><input style="margin-right:12px;width:350px" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getName() . '"><input style="width:50px" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $item->quantity . '"></div>';
             }
         }
 
