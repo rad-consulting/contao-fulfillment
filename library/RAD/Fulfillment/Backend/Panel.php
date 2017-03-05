@@ -130,4 +130,12 @@ class Panel extends Backend
     {
         return Fulfillment::getStatus();
     }
+
+    /**
+     * @return string
+     */
+    public function saveForPositions()
+    {
+        return null;
+    }
 }

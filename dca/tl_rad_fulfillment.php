@@ -139,6 +139,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
         'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['positions'],
         'inputType' => 'multiColumnWizard',
         'load_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'loadForPositions'),
+        'save_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'saveForPositions'),
         'eval' => array(
             'tl_class' => 'clr',
             'doNotSaveEmpty' => true,
