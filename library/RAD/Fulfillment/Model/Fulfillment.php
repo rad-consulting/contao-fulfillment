@@ -47,7 +47,7 @@ class Fulfillment extends TypeAgent implements LogInterface
     /**
      * @var array
      */
-    protected static $arrModelTypes;
+    protected static $arrModelTypes = array();
 
     /**
      * @param ShopOrder $order
