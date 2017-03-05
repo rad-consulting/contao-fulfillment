@@ -137,7 +137,7 @@ class Panel extends Backend
      */
     public function buttonsForFulfillment(array &$buttons)
     {
-        array_unshift($buttons, 'hello');
+        array_unshift($buttons, '<fieldset id="pal_position_legend" class="tl_box"><legend>Positionen</legend><div><h3>Positionen</h3></div></fieldset>');
 
         return $buttons;
     }
