@@ -141,6 +141,8 @@ class Panel extends Backend
         $fulfillment = Fulfillment::findByPk($dc->activeRecord->id);
 
         if ($fulfillment instanceof Fulfillment) {
+            $buffer[] = $fulfillment->id;
+
             foreach ($fulfillment->getItems() as $item) {
                 $product = $item->getProduct();
 
