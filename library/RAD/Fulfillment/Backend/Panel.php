@@ -135,9 +135,20 @@ class Panel extends Backend
      * @param array $buttons
      * @return array
      */
-    public function buttonsForFulfillment(array &$buttons)
+    public function buttonsForFulfillment(array &$buttons, DataContainer $dc)
     {
-        array_unshift($buttons, '<fieldset id="pal_position_legend" class="tl_box"><legend onclick="AjaxRequest.toggleFieldset(this,\'position_legend\',\'tl_rad_fulfillment\')">Positionen</legend><div>hallo</div></fieldset>');
+        $buffer = array();
+        $fulfillment = Fulfillment::findByPk($dc->activeRecord->id);
+
+        if ($fulfillment instanceof Fulfillment) {
+            foreach ($fulfillment->getItems() as $item) {
+                $product = $item->getProduct();
+
+                $buffer[] = '<input type="text" readonly="readonly" value="' . $product->getName() . '">';
+            }
+        }
+
+        array_unshift($buttons, '<fieldset id="pal_position_legend" class="tl_box"><legend onclick="AjaxRequest.toggleFieldset(this,\'position_legend\',\'tl_rad_fulfillment\')">Positionen</legend><div>' . implode('', $buffer) . '</div></fieldset>');
 
         return $buttons;
     }
