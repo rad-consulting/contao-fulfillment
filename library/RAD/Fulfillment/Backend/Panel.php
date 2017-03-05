@@ -11,7 +11,6 @@ namespace RAD\Fulfillment\Backend;
 use Contao\Backend;
 use Contao\DataContainer;
 use Isotope\Model\OrderStatus;
-use Isotope\Model\ProductType;
 use MultiColumnWizard;
 use NotificationCenter\Model\Message;
 use NotificationCenter\Model\Notification;
@@ -139,7 +138,7 @@ class Panel extends Backend
     {
         $buffer = array();
         $fulfillment = Fulfillment::findByPk($dc->activeRecord->id);
-        $buffer[] = get_class($fulfillment);
+        $buffer[] = var_export($fulfillment, true);
 
         if ($fulfillment instanceof Fulfillment) {
             $buffer[] = $fulfillment->id;
