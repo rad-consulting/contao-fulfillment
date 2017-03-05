@@ -132,10 +132,13 @@ class Panel extends Backend
     }
 
     /**
-     * @return string
+     * @param array $buttons
+     * @return array
      */
-    public function saveForPositions()
+    public function buttonsForFulfillment(array &$buttons)
     {
-        return null;
+        array_unshift($buttons, 'hello');
+
+        return $buttons;
     }
 }

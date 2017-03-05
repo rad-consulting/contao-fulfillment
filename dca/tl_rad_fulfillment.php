@@ -66,6 +66,9 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
     ),
 );
 
+// Edit buttons
+$GLOBALS['TL_DCA']['tl_rad_fulfillment']['edit']['buttons_callback'][] = array('RAD\\Fulfillment\\Backend\\Panel', 'buttonsForFulfillment');
+
 // Palettes
 $GLOBALS['TL_DCA']['tl_rad_fulfillment']['palettes'] = array(
     '__selector__' => array('type'),
