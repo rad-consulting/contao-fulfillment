@@ -137,7 +137,7 @@ class Panel extends Backend
      */
     public function buttonsForFulfillment(array &$buttons, DataContainer $dc)
     {
-        $buffer = array('<div style="margin-top:12px;white-space:nowrap;"><table>');
+        $buffer = array();
         $order = Order::findByPk($dc->activeRecord->pid);
 
         foreach ($order->getItems() as $item) {
@@ -148,11 +148,9 @@ class Panel extends Backend
             $product = $item->getProduct();
 
             if ($product instanceof Product) {
-                $buffer[] = '<tr><td style="width:20%;padding-right:12px"><input style="max-width:20%" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getSKU() . '"></td><td style="width:20%;padding-right:12px"><input style="max-width:20%" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getEAN()->getValue() . '"></td><td style="width:50%;padding-right:12px"><input type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getName() . '"></td><td style="width:10%"><input style="max-width:10%" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $item->quantity . '"></td></tr>';
+                $buffer[] = '<div style="margin-top:12px;white-space:nowrap;"><input style="width:20%" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getSKU() . '"> <input style="width:20%" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getEAN()->getValue() . '"> <input type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $product->getName() . '"> <input style="width:10%" type="text" class="tl_text" disabled="disabled" readonly="readonly" value="' . $item->quantity . '"></div>';
             }
         }
-
-        $buffer[] = '</table>';
 
         array_unshift($buttons, '<fieldset id="pal_position_legend" class="tl_box"><legend onclick="AjaxRequest.toggleFieldset(this,\'position_legend\',\'tl_rad_fulfillment\')">Positionen</legend>' . implode('', $buffer) . '</fieldset>');
 
