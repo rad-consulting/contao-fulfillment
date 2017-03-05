@@ -69,7 +69,7 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['list'] = array(
 // Palettes
 $GLOBALS['TL_DCA']['tl_rad_fulfillment']['palettes'] = array(
     '__selector__' => array('type'),
-    'default' => '{type_legend},id,pid,type,status;{fulfillment_legend},reference,tracking',
+    'default' => '{type_legend},id,pid,type,status;{fulfillment_legend},reference,tracking;{position_legend},positions',
 );
 
 // Fields
@@ -134,5 +134,37 @@ $GLOBALS['TL_DCA']['tl_rad_fulfillment']['fields'] = array(
         'reference' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['status.reference'],
         'inputType' => 'select',
         'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForStatus'),
+    ),
+    'positions' => array(
+        'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['positions'],
+        'inputType' => 'multiColumnWizard',
+        'load_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'loadForPositions'),
+        'eval' => array(
+            'tl_class' => 'clr',
+            'doNotSaveEmpty' => true,
+            'disableSorting' => true,
+            'columnFields' => array(
+                'sku' => array(
+                    'eval' => array('style' => 'width:50px'),
+                    'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['sku'],
+                    'inputType' => 'text',
+                ),
+                'ean' => array(
+                    'eval' => array('style' => 'width:50px'),
+                    'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['ean'],
+                    'inputType' => 'text',
+                ),
+                'product' => array(
+                    'eval' => array('style' => 'width:250px'),
+                    'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['product'],
+                    'inputType' => 'text',
+                ),
+                'quantity' => array(
+                    'eval' => array('style' => 'width:50px'),
+                    'label' => &$GLOBALS['TL_LANG']['tl_rad_fulfillment']['quantity'],
+                    'inputType' => 'text',
+                ),
+            ),
+        ),
     ),
 );
