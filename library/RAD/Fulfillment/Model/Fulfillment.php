@@ -184,7 +184,15 @@ class Fulfillment extends TypeAgent implements LogInterface
      */
     public function getItems()
     {
-        return $this->getOrder()->getItems();
+        $items = array();
+
+        foreach ($this->getOrder()->getItems() as $item) {
+            if ($this->type == $item->type) {
+                $items[] = $item;
+            }
+        }
+
+        return $items;
     }
 
     /**
