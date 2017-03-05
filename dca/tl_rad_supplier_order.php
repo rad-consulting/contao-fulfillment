@@ -91,7 +91,7 @@ $GLOBALS['TL_DCA']['tl_rad_supplier_order']['fields'] = array(
         'label' => &$GLOBALS['TL_LANG']['tl_rad_supplier_order']['producttype'],
         'default' => 'standard',
         'inputType' => 'select',
-        'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForProductType'),
+        'options_callback' => array('RAD\\Fulfillment\\Backend\\Panel', 'getOptionsForType'),
     ),
     'positions' => array(
         'sql' => "blob NULL",
