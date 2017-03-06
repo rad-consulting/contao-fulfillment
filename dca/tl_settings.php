@@ -54,7 +54,7 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['rad_fulfillment_termofdelivery'] = 
                 'options' => array('d', 'w', 'm'),
             ),
             'value' => array(
-                'eval' => array('rgxp' => 'digit', 'style' => 'width:50px'),
+                'eval' => array('rgxp' => 'alnum', 'style' => 'width:50px'),
                 'label' => &$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.value'],
                 'inputType' => 'text',
             ),
