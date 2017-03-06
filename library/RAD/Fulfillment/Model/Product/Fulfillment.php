@@ -13,9 +13,9 @@ use Contao\Model\Collection;
 use Exception;
 use Isotope\Model\Product\Standard;
 use Isotope\Model\ProductType;
-use RAD\Fulfillment\Unit\TOD\TOD;
 use RAD\Log\Model\Log;
 use RAD\Fulfillment\Unit\EAN;
+use RAD\Fulfillment\Unit\TOD;
 
 /**
  * Class Fulfillment
@@ -168,7 +168,7 @@ class Fulfillment extends Standard
     /**
      * TOD - term of delivery, not death ;-)
      *
-     * @return TOD
+     * @return TOD\TOD
      */
     public function getTOD()
     {
@@ -178,17 +178,17 @@ class Fulfillment extends Standard
 
         foreach ($override as $tod) {
             if ($tod['type'] == $type) {
-                return new TOD($tod['value'], $tod['unit']);
+                return new TOD\TOD($tod['value'], $tod['unit']);
             }
         }
 
         foreach ($fallback as $tod) {
             if ($tod['type'] == $type) {
-                return new TOD($tod['value'], $tod['unit']);
+                return new TOD\TOD($tod['value'], $tod['unit']);
             }
         }
 
-        return null;
+        return new TOD\TOD('1-2', TOD\Unit::DAYS);
     }
 
     /**
