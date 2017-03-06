@@ -164,7 +164,12 @@ class Fulfillment extends Standard
         return $this;
     }
 
-    public function getTermOfDelivery()
+    /**
+     * TOD - term of delivery, not death ;-)
+     *
+     * @return mixed
+     */
+    public function getTOD()
     {
         $fallback = deserialize(Settings::get("rad_fulfillment_termofdelivery"), true);
         $override = deserialize(Settings::get("rad_{$this->type}_termofdelivery"), true);
