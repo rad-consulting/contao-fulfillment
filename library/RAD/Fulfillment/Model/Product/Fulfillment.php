@@ -13,6 +13,7 @@ use Contao\Model\Collection;
 use Exception;
 use Isotope\Model\Product\Standard;
 use Isotope\Model\ProductType;
+use RAD\Fulfillment\Unit\TOD\TOD;
 use RAD\Log\Model\Log;
 use RAD\Fulfillment\Unit\EAN;
 
@@ -167,18 +168,27 @@ class Fulfillment extends Standard
     /**
      * TOD - term of delivery, not death ;-)
      *
-     * @return mixed
+     * @return TOD
      */
     public function getTOD()
     {
+        $type = 0 < $this->getStock() ? 'onstock' : 'outofstock';
         $fallback = deserialize(Settings::get("rad_fulfillment_termofdelivery"), true);
         $override = deserialize(Settings::get("rad_{$this->type}_termofdelivery"), true);
 
-        if ('fulfillment' == $this->type) {
-            return $fallback;
+        foreach ($override as $tod) {
+            if ($tod['type'] == $type) {
+                return new TOD($tod['value'], $tod['unit']);
+            }
         }
 
-        return $override;
+        foreach ($fallback as $tod) {
+            if ($tod['type'] == $type) {
+                return new TOD($tod['value'], $tod['unit']);
+            }
+        }
+
+        return null;
     }
 
     /**

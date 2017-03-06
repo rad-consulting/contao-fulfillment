@@ -32,8 +32,12 @@ class Frontend extends ContaoFrontend
             return true;
         };
 
-        $template->getDelivery = function () use ($product) {
+        $template->getEAN = function () use ($product) {
+            if ($product instanceof Fulfillment) {
+                return $product->getEAN();
+            }
 
+            return null;
         };
 
         $template->getStock = function () use ($product) {
@@ -50,6 +54,14 @@ class Frontend extends ContaoFrontend
             }
 
             return true;
+        };
+
+        $template->getTOD = function () use ($product) {
+            if ($product instanceof Fulfillment) {
+                return $product->getTOD();
+            }
+
+            return null;
         };
     }
 }
