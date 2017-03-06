@@ -37,6 +37,7 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['rad_fulfillment_termofdelivery'] = 
         'tl_class' => 'clr',
         'doNotSaveEmpty' => true,
         'disableSorting' => true,
+        'maxCount' => 2,
         'columnFields' => array(
             'type' => array(
                 'eval' => array('style' => 'width:150px'),
