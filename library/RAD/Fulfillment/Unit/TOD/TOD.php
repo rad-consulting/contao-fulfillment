@@ -13,7 +13,7 @@ namespace RAD\Fulfillment\Unit\TOD;
 class TOD
 {
     /**
-     * @var float
+     * @var string
      */
     protected $value;
 
@@ -23,7 +23,7 @@ class TOD
     protected $unit;
 
     /**
-     * @param float  $value
+     * @param string $value
      * @param string $unit
      */
     public function __construct($value, $unit)
@@ -33,7 +33,15 @@ class TOD
     }
 
     /**
-     * @return float
+     * @return string
+     */
+    public function getText()
+    {
+        return sprintf($GLOBALS['TL_LANG']['TOD'][$this->getUnit()], $this->getValue());
+    }
+
+    /**
+     * @return string
      */
     public function getValue()
     {
