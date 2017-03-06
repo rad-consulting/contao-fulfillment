@@ -7,10 +7,10 @@
  */
 namespace RAD\Fulfillment\Model;
 
+use Contao\Model;
 use Exception, InvalidArgumentException;
 use Isotope\Model\ProductCollection\Order as ShopOrder;
 use Isotope\Model\ProductCollectionItem as ShopItem;
-use Isotope\Model\TypeAgent;
 use RAD\Log\LogInterface;
 use RAD\Log\Model\Log;
 
@@ -27,7 +27,7 @@ use RAD\Log\Model\Log;
  * @property string $delivery
  * @property string $tracking
  */
-class Fulfillment extends TypeAgent implements LogInterface
+class Fulfillment extends Model implements LogInterface
 {
     /**
      * @const int
@@ -43,11 +43,6 @@ class Fulfillment extends TypeAgent implements LogInterface
      * @var string
      */
     public static $strTable = 'tl_rad_fulfillment';
-
-    /**
-     * @var array
-     */
-    protected static $arrModelTypes = array();
 
     /**
      * @param ShopOrder $order

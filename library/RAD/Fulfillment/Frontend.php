@@ -32,6 +32,10 @@ class Frontend extends ContaoFrontend
             return true;
         };
 
+        $template->getDelivery = function () use ($product) {
+
+        };
+
         $template->getStock = function () use ($product) {
             if ($product instanceof Fulfillment) {
                 return $product->getStock();

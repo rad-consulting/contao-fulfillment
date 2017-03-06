@@ -22,7 +22,6 @@ if (!is_array($GLOBALS['BE_MOD']['fulfillment'])) {
 }
 
 // Models
-\RAD\Fulfillment\Model\Fulfillment::registerModelType('fulfillment', 'RAD\\Fulfillment\\Model\\Fulfillment');
 \Isotope\Model\Shipping::registerModelType('swisspost', 'RAD\\Fulfillment\\Model\\Shipping\\Swisspost');
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\Fulfillment::getTable()] = 'RAD\\Fulfillment\\Model\\Fulfillment';
 $GLOBALS['TL_MODELS'][\RAD\Fulfillment\Model\SupplierOrder::getTable()] = 'RAD\\Fulfillment\\Model\\SupplierOrder';
