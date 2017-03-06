@@ -176,7 +176,7 @@ class Fulfillment extends Standard
         $fallback = deserialize(Settings::get("rad_fulfillment_termofdelivery"), true);
         $override = deserialize(Settings::get("rad_{$this->type}_termofdelivery"), true);
 
-        var_dump($fallback, $override);
+        var_dump($fallback, $override, $this->type, $this->arrData['type']);
 
         foreach ($override as $tod) {
             if ($tod['type'] == $type) {
