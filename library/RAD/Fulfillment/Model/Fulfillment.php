@@ -7,11 +7,9 @@
  */
 namespace RAD\Fulfillment\Model;
 
-use Contao\Model;
-use Exception, InvalidArgumentException;
+use InvalidArgumentException;
 use Isotope\Model\ProductCollection\Order as ShopOrder;
 use Isotope\Model\ProductCollectionItem as ShopItem;
-use RAD\Log\LogInterface;
 use RAD\Log\Model\Log;
 
 /**
@@ -27,7 +25,7 @@ use RAD\Log\Model\Log;
  * @property string $delivery
  * @property string $tracking
  */
-class Fulfillment extends Model implements LogInterface
+class Fulfillment extends AbstractModel
 {
     /**
      * @const int
@@ -225,23 +223,5 @@ class Fulfillment extends Model implements LogInterface
     public function getTracking()
     {
         return $this->tracking;
-    }
-
-    /**
-     * @param string|Exception $message
-     * @param int              $level
-     * @param string|null      $data
-     * @return $this
-     */
-    public function log($message, $level = Log::INFO, $data = null)
-    {
-        if ($message instanceof Exception) {
-            $level = $message->getCode();
-            $message = $message->getMessage();
-        }
-
-        Log::factory($this, $message, $level, $data)->save();
-
-        return $this;
     }
 }
