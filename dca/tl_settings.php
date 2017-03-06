@@ -39,14 +39,14 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['rad_fulfillment_termofdelivery'] = 
         'disableSorting' => true,
         'columnFields' => array(
             'type' => array(
-                'eval' => array('style' => 'width:50px'),
+                'eval' => array('style' => 'width:100px'),
                 'label' => &$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.type'],
                 'inputType' => 'select',
                 'reference' => &$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.type.reference'],
                 'options' => array('onstock', 'outofstock'),
             ),
             'unit' => array(
-                'eval' => array('style' => 'width:50px'),
+                'eval' => array('style' => 'width:100px'),
                 'label' => &$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.unit'],
                 'inputType' => 'select',
                 'reference' => &$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.type.unit'],
