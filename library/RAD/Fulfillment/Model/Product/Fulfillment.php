@@ -7,12 +7,11 @@
  */
 namespace RAD\Fulfillment\Model\Product;
 
+use Contao\Config as Settings;
 use Contao\Database;
 use Contao\Model\Collection;
 use Exception;
-use Isotope\Model\BasePrice;
 use Isotope\Model\Product\Standard;
-use Isotope\Model\ProductPrice;
 use Isotope\Model\ProductType;
 use RAD\Log\Model\Log;
 use RAD\Fulfillment\Unit\EAN;
@@ -163,6 +162,18 @@ class Fulfillment extends Standard
         }
 
         return $this;
+    }
+
+    public function getTermOfDelivery()
+    {
+        $fallback = deserialize(Settings::get("rad_fulfillment_termofdelivery"), true);
+        $override = deserialize(Settings::get("rad_{$this->type}_termofdelivery"), true);
+
+        if ('fulfillment' == $this->type) {
+            return $fallback;
+        }
+
+        return $override;
     }
 
     /**
