@@ -21,3 +21,4 @@ $GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.value'] = arr
 
 // References
 $GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.type.reference'] = array('onstock' => 'An Lager', 'outofstock' => 'Nicht an Lager');
+$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.type.unit'] = array('d' => 'Tage', 'w' => 'Wochen', 'm' => 'Monate');
