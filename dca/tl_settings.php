@@ -39,7 +39,7 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['rad_fulfillment_termofdelivery'] = 
         'disableSorting' => true,
         'columnFields' => array(
             'type' => array(
-                'eval' => array('style' => 'width:100px'),
+                'eval' => array('style' => 'width:150px'),
                 'label' => &$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.type'],
                 'inputType' => 'select',
                 'reference' => &$GLOBALS['TL_LANG']['tl_settings']['rad_fulfillment_termofdelivery.type.reference'],
