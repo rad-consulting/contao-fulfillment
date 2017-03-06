@@ -172,20 +172,21 @@ class Fulfillment extends Standard
      */
     public function getTOD()
     {
-        $type = 0 < $this->getStock() ? 'onstock' : 'outofstock';
+        $type = ProductType::findByPk($this->type)->class;
+        $state = 0 < $this->getStock() ? 'onstock' : 'outofstock';
         $fallback = deserialize(Settings::get("rad_fulfillment_termofdelivery"), true);
-        $override = deserialize(Settings::get("rad_{$this->type}_termofdelivery"), true);
+        $override = deserialize(Settings::get("rad_{$type}_termofdelivery"), true);
 
-        var_dump($fallback, $override, $this->type, $this->arrData['type']);
+        var_dump($fallback, $override, $type);
 
         foreach ($override as $tod) {
-            if ($tod['type'] == $type) {
+            if ($tod['type'] == $state) {
                 return new TOD\TOD($tod['value'], $tod['unit']);
             }
         }
 
         foreach ($fallback as $tod) {
-            if ($tod['type'] == $type) {
+            if ($tod['type'] == $state) {
                 return new TOD\TOD($tod['value'], $tod['unit']);
             }
         }
