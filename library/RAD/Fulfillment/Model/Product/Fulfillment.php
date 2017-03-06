@@ -176,6 +176,8 @@ class Fulfillment extends Standard
         $fallback = deserialize(Settings::get("rad_fulfillment_termofdelivery"), true);
         $override = deserialize(Settings::get("rad_{$this->type}_termofdelivery"), true);
 
+        var_dump($fallback, $override);
+
         foreach ($override as $tod) {
             if ($tod['type'] == $type) {
                 return new TOD\TOD($tod['value'], $tod['unit']);
