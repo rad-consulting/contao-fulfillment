@@ -3,9 +3,7 @@
  * @copyright  RAD Consulting GmbH 2017
  * @author     Chris Raidler <c.raidler@rad-consulting.ch>
  * @author     Olivier Dahinden <o.dahinden@rad-consulting.ch>
- * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
-
 // Palettes
 $GLOBALS['TL_DCA']['tl_iso_shipping']['palettes']['swisspost'] = str_replace('{expert_legend:hide}', '{swisspost_legend:hide},rad_swisspost_basicservice;{expert_legend:hide}', $GLOBALS['TL_DCA']['tl_iso_shipping']['palettes']['flat']);
 
